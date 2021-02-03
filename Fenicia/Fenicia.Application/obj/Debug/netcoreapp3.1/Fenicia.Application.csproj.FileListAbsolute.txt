@@ -1,0 +1,4 @@
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Application\bin\Debug\netcoreapp3.1\Fenicia.Domain.dll
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Application\obj\Debug\netcoreapp3.1\Fenicia.Application.csprojAssemblyReference.cache
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Application\obj\Debug\netcoreapp3.1\Fenicia.Application.AssemblyInfoInputs.cache
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Application\obj\Debug\netcoreapp3.1\Fenicia.Application.AssemblyInfo.cs
