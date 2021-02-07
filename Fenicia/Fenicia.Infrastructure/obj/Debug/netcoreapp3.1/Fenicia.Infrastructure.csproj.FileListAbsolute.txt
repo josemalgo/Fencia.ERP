@@ -1,0 +1,14 @@
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Infrastructure\bin\Debug\netcoreapp3.1\Fenicia.Infrastructure.deps.json
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Infrastructure\bin\Debug\netcoreapp3.1\Fenicia.Infrastructure.dll
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Infrastructure\bin\Debug\netcoreapp3.1\Fenicia.Infrastructure.pdb
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Infrastructure\bin\Debug\netcoreapp3.1\Fenicia.Application.dll
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Infrastructure\bin\Debug\netcoreapp3.1\Fenicia.Domain.dll
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Infrastructure\bin\Debug\netcoreapp3.1\Fenicia.Application.pdb
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Infrastructure\bin\Debug\netcoreapp3.1\Fenicia.Domain.pdb
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Infrastructure\obj\Debug\netcoreapp3.1\Fenicia.Infrastructure.csprojAssemblyReference.cache
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Infrastructure\obj\Debug\netcoreapp3.1\Fenicia.Infrastructure.AssemblyInfoInputs.cache
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Infrastructure\obj\Debug\netcoreapp3.1\Fenicia.Infrastructure.AssemblyInfo.cs
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Infrastructure\obj\Debug\netcoreapp3.1\Fenicia.Infrastructure.csproj.CoreCompileInputs.cache
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Infrastructure\obj\Debug\netcoreapp3.1\Fenicia.Infrastructure.csproj.CopyComplete
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Infrastructure\obj\Debug\netcoreapp3.1\Fenicia.Infrastructure.dll
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Infrastructure\obj\Debug\netcoreapp3.1\Fenicia.Infrastructure.pdb

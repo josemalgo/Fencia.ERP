@@ -16,8 +16,8 @@ namespace Fenicia.Domain.Entities
         public DateTime AssignamentDate { get; set; }
         public DateTime TerminationDate { get; set; }
 
-        public Guid IdAddress { get; set; }
-        public Address AddressOrder { get; set; }
+        public Guid IdDeliveryAddress { get; set; }
+        public DeliveryAddress DeliveryAddressOrder { get; set; }
 
         public Guid IdEmployee { get; set; }
         public Employee EmployeeOrder { get; set; }

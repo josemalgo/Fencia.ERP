@@ -1,0 +1,2 @@
+﻿07/02 - Primera prueba del diseño de las clases. InitialMigration
+		Añado configuración en la clase de startUp - AddCors, AddDbContext

@@ -8,9 +8,6 @@ namespace Fenicia.Application.Common.Interfaces
 {
     public interface IFeniciaDbContext
     {
-        DbSet<Person> Persons { get; set; }
-
-        DbSet<Menu> Menus { get; set; }
 
         //Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }

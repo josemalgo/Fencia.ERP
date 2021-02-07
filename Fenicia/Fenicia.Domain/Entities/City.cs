@@ -8,6 +8,8 @@ namespace Fenicia.Domain.Entities
     {
         public string Name { get; set; }
 
+        public List<Address> Addresses { get; set; }
+
         public Guid idCountry { get; set; }
         public Country CountryCity { get; set; }
     }

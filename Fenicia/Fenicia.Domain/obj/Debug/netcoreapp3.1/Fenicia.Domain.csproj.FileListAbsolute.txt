@@ -1,0 +1,9 @@
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Domain\bin\Debug\netcoreapp3.1\Fenicia.Domain.deps.json
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Domain\bin\Debug\netcoreapp3.1\Fenicia.Domain.dll
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Domain\bin\Debug\netcoreapp3.1\Fenicia.Domain.pdb
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Domain\obj\Debug\netcoreapp3.1\Fenicia.Domain.csprojAssemblyReference.cache
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Domain\obj\Debug\netcoreapp3.1\Fenicia.Domain.AssemblyInfoInputs.cache
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Domain\obj\Debug\netcoreapp3.1\Fenicia.Domain.AssemblyInfo.cs
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Domain\obj\Debug\netcoreapp3.1\Fenicia.Domain.csproj.CoreCompileInputs.cache
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Domain\obj\Debug\netcoreapp3.1\Fenicia.Domain.dll
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.Domain\obj\Debug\netcoreapp3.1\Fenicia.Domain.pdb

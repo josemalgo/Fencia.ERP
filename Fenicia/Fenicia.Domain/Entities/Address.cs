@@ -12,11 +12,15 @@ namespace Fenicia.Domain.Entities
         public int Door { get; set; }
         public int ZipCode { get; set; }
 
-        public Guid IdAddress { get; set; }
-        public Customer AddreesCustomer { get; set; }
+        public Customer FiscalAddressCustomer { get; set; }
+
+        public DeliveryAddress DeliveryAddress{ get; set; }
 
         public Guid IdCity { get; set; }
         public City CityAddrees { get; set; }
+
+        //Method IsFiscalOrDelivery()
+        //Discriminator FiscalAddress y DeliveryAddress
 
     }
 }

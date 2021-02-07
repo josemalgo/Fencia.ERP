@@ -16,5 +16,10 @@ namespace Fenicia.Domain.Entities
 
         public Guid UserId { get; set; }
         public User UserCustomer { get; set; }
+
+        public Guid FiscalAddressId { get; set; }
+        public Address FiscalAddress { get; set; }
+
+        public List<DeliveryAddress> DeliveryAddresses { get; set; }
     }
 }
