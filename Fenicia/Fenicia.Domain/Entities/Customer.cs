@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Fenicia.Domain.Entities
 {
-    public class Customer : Entity
+    public class Customer : User
     {
         public string TradeName { get; set; }
         public string FiscalName { get; set; }
@@ -14,12 +14,10 @@ namespace Fenicia.Domain.Entities
         public string Email { get; set; }
         public string Web { get; set; }
 
-        public Guid UserId { get; set; }
-        public User UserCustomer { get; set; }
-
         public Guid FiscalAddressId { get; set; }
         public Address FiscalAddress { get; set; }
 
         public List<DeliveryAddress> DeliveryAddresses { get; set; }
+        public List<Order> Orders { get; set; }
     }
 }

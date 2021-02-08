@@ -4,11 +4,8 @@ using System.Text;
 
 namespace Fenicia.Domain.Entities
 {
-    public class DeliveryAddress : Entity
+    public class DeliveryAddress : Address
     {
-        public Guid AddressId { get; set; }
-        public Address Address { get; set; }
-
         public Guid CustomerId { get; set; }
         public Customer Customer { get; set; }
 

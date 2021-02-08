@@ -16,14 +16,16 @@ namespace Fenicia.Domain.Entities
         public DateTime AssignamentDate { get; set; }
         public DateTime TerminationDate { get; set; }
 
-        public Guid IdDeliveryAddress { get; set; }
-        public DeliveryAddress DeliveryAddressOrder { get; set; }
+        public Guid DeliveryAddressId { get; set; }
+        public DeliveryAddress DeliveryAddress { get; set; }
 
-        public Guid IdEmployee { get; set; }
-        public Employee EmployeeOrder { get; set; }
+        public Guid EmployeeId { get; set; }
+        public Employee Employee { get; set; }
 
-        public Guid IdCustomer { get; set; }
-        public Customer CustomerOrder { get; set; }
+        public Guid CustomerId { get; set; }
+        public Customer Customer { get; set; }
+
+        public List<OrderItem> OrderItems { get; set; }
 
     }
 }

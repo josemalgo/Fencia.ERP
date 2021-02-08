@@ -12,8 +12,10 @@ namespace Fenicia.Domain.Entities
         public string Description { get; set; }
         public int stock { get; set; }
 
-        public Guid IdCategory { get; set; }
-        public Category CategoryProduct { get; set; }
+        public Guid CategoryId { get; set; }
+        public Category Category { get; set; }
+
+        public List<OrderItem> OrderItems { get; set; }
 
     }
 }

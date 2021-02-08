@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Fenicia.Domain.Entities
 {
@@ -7,9 +8,6 @@ namespace Fenicia.Domain.Entities
         public string Job { get; set; }
         public decimal Salary { get; set; }
 
-        public Guid PersonId { get; set; }
-        public Person PersonAdmin { get; set; }
-
-        
+        public List<Order> Orders { get; set; }
     }
 }

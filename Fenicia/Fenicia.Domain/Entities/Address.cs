@@ -16,8 +16,8 @@ namespace Fenicia.Domain.Entities
 
         public DeliveryAddress DeliveryAddress{ get; set; }
 
-        public Guid IdCity { get; set; }
-        public City CityAddrees { get; set; }
+        public Guid CityId { get; set; }
+        public City CityAddress { get; set; }
 
         //Method IsFiscalOrDelivery()
         //Discriminator FiscalAddress y DeliveryAddress
