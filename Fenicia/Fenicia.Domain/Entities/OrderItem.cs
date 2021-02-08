@@ -6,7 +6,7 @@ namespace Fenicia.Domain.Entities
 {
     public class OrderItem : Entity
     {
-        public double quantity { get; set; }
+        public double Quantity { get; set; }
         public decimal Discount { get; set; }
 
         public Guid OrderId { get; set; }

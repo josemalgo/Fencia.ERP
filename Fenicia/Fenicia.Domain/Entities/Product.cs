@@ -10,7 +10,7 @@ namespace Fenicia.Domain.Entities
         public decimal Price { get; set; }
         public decimal Iva { get; set; }
         public string Description { get; set; }
-        public int stock { get; set; }
+        public int Stock { get; set; }
 
         public Guid CategoryId { get; set; }
         public Category Category { get; set; }

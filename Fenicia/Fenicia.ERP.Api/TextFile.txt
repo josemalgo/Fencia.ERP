@@ -1,2 +1,4 @@
 ﻿07/02 - Primera prueba del diseño de las clases. InitialMigration
 		Añado configuración en la clase de startUp - AddCors, AddDbContext
+
+08/02 - Api Fluent configurar tamaño para las propiedades con una longitud fija person.phone

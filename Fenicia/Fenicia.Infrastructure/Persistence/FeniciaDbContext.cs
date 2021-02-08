@@ -57,7 +57,8 @@ namespace Fenicia.Infrastructure.Persistence
             modelBuilder.Entity<Customer>()
                 .HasOne<Address>(c => c.FiscalAddress)
                 .WithOne(a => a.FiscalAddressCustomer)
-                .HasForeignKey<Customer>(x => x.FiscalAddressId);
+                .HasForeignKey<Customer>(x => x.FiscalAddressId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<DeliveryAddress>()
                 .HasOne<Customer>(d => d.Customer)
@@ -77,9 +78,13 @@ namespace Fenicia.Infrastructure.Persistence
                 .HasForeignKey(p => p.MenuId);
 
             modelBuilder.Entity<Order>().Property(e => e.NumberItems).IsRequired();
-            modelBuilder.Entity<Order>().Property(e => e.Priority).HasColumnType(.IsRequired();
+            modelBuilder.Entity<Order>().Property(e => e.Priority).IsRequired();
+            modelBuilder.Entity<Order>().Property(e => e.Status).IsRequired();
             modelBuilder.Entity<Order>().Property(e => e.Iva).HasColumnType("decimal(8,2)").IsRequired();
             modelBuilder.Entity<Order>().Property(e => e.TotalPrice).HasColumnType("decimal(8,2)").IsRequired();
+            modelBuilder.Entity<Order>().Property(e => e.EntryDate).IsRequired();
+            modelBuilder.Entity<Order>().Property(e => e.AssignamentDate).IsRequired();
+            modelBuilder.Entity<Order>().Property(e => e.TerminationDate).IsRequired();
             modelBuilder.Entity<Order>()
                 .HasOne<DeliveryAddress>(o => o.DeliveryAddress)
                 .WithMany(d => d.Orders)
@@ -94,6 +99,7 @@ namespace Fenicia.Infrastructure.Persistence
                 .HasForeignKey(o => o.EmployeeId);
 
             modelBuilder.Entity<OrderItem>().Property(e => e.Discount).HasColumnType("decimal(8,2)").IsRequired();
+            modelBuilder.Entity<OrderItem>().Property(e => e.Quantity).IsRequired();
             modelBuilder.Entity<OrderItem>()
                 .HasOne<Order>(oi => oi.Order)
                 .WithMany(o => o.OrderItems)
@@ -103,18 +109,42 @@ namespace Fenicia.Infrastructure.Persistence
                 .WithMany(o => o.OrderItems)
                 .HasForeignKey(oi => oi.ProductId);
 
-            modelBuilder.Entity<Product>().Property(e => e.Price).HasColumnType("decimal(8,2)").IsRequired();
-            modelBuilder.Entity<Product>().Property(e => e.Iva).HasColumnType("decimal(8,2)").IsRequired();
+            modelBuilder.Entity<Person>().Property(p => p.Dni).HasColumnType("varchar(9)").IsRequired();
+            modelBuilder.Entity<Person>().Property(p => p.Name).HasColumnType("varchar(50)").IsRequired();
+            modelBuilder.Entity<Person>().Property(p => p.Surname).HasColumnType("varchar(50)").IsRequired();
+            modelBuilder.Entity<Person>().Property(p => p.Phone).IsRequired(); 
+            modelBuilder.Entity<Person>().Property(p => p.BirthDate).IsRequired();
+            modelBuilder.Entity<Person>().Property(p => p.Gender).IsRequired();
+            modelBuilder.Entity<Person>().HasIndex(p => p.Dni).IsUnique();
+
+            modelBuilder.Entity<Product>().Property(p => p.Name).HasColumnType("varchar(50)").IsRequired();
+            modelBuilder.Entity<Product>().Property(p => p.Name).HasColumnType("text").IsRequired();
+            modelBuilder.Entity<Product>().Property(p => p.Stock).IsRequired();
+            modelBuilder.Entity<Product>().Property(p => p.Price).HasColumnType("decimal(8,2)").IsRequired();
+            modelBuilder.Entity<Product>().Property(p => p.Iva).HasColumnType("decimal(8,2)").IsRequired();
             modelBuilder.Entity<Product>()
                 .HasOne<Category>(p => p.Category)
                 .WithMany(c => c.Products)
                 .HasForeignKey(p => p.CategoryId);
 
-            modelBuilder.Entity<Person>().ToTable("Person");
-            modelBuilder.Entity<Employee>().ToTable("Employee");
+            modelBuilder.Entity<User>().Property(u => u.UserName).HasColumnType("varchar(50)").IsRequired();
+            modelBuilder.Entity<User>().Property(u => u.Password).HasColumnType("varchar(50)").IsRequired();
+
+            modelBuilder.Entity<Address>().ToTable("Address");
             modelBuilder.Entity<Admin>().ToTable("Admin");
-            modelBuilder.Entity<User>().ToTable("User");
+            modelBuilder.Entity<Category>().ToTable("Category");
+            modelBuilder.Entity<City>().ToTable("City");
+            modelBuilder.Entity<Country>().ToTable("Country");
             modelBuilder.Entity<Customer>().ToTable("Customer");
+            modelBuilder.Entity<DeliveryAddress>().ToTable("DeliveryAddress");
+            modelBuilder.Entity<Employee>().ToTable("Employee");
+            modelBuilder.Entity<Menu>().ToTable("Menu");
+            modelBuilder.Entity<Order>().ToTable("Order");
+            modelBuilder.Entity<OrderItem>().ToTable("OrderItem");
+            modelBuilder.Entity<Person>().ToTable("Person");
+            modelBuilder.Entity<Product>().ToTable("Product");
+            modelBuilder.Entity<User>().ToTable("User");
+            
 
         }
     }
