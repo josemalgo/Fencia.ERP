@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Fenicia.Application\Fenicia.Application.csproj" />
     <ProjectReference Include="..\Fenicia.Infrastructure\Fenicia.Infrastructure.csproj" />
   </ItemGroup>
 

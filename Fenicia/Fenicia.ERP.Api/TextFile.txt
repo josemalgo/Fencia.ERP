@@ -2,3 +2,12 @@
 		Añado configuración en la clase de startUp - AddCors, AddDbContext
 
 08/02 - Api Fluent configurar tamaño para las propiedades con una longitud fija person.phone
+		Borro Propiedad de navegacion de referencia Employee de la clase Person 
+		Creo EmployeesController POST, que llama al metodo Handle de la clase
+		RegisterUserInteractor, esta clase devolvera un objeto response que se lo pasaremos al 
+		presenter que acabará devolviendo los datos preparados en forma de ViewModel para la
+		vista 
+		Hay que añadir a la interfaz del contexto todos los DbSets para que desde la interactor
+		clase podamos utilizarlos.
+
+09/02 - Preferir las convenciones a las configuraciones.

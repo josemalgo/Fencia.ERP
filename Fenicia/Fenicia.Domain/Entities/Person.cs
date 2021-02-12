@@ -14,8 +14,6 @@ namespace Fenicia.Domain.Entities
         public Gender Gender { get; set; }
         public DateTime BirthDate { get; set; }
 
-        public Employee Employee { get; set; }
-
         public Guid MenuId { get; set; }
         public Menu Menu { get; set; }
 
