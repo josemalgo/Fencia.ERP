@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "EaiiCgtEcfREeMAFJ0IPPK+yGPiwXHc3gETlnY4xeS+y18kpKfqFYvau9wnaNK6Ea+n9oQVhfzxaRKEEZDFJTQ==",
+  "dgSpecHash": "LLRaE2+z4t8+jlf9bJpVc21qpl+vwB7f67fadnnEkcbp7yP4hkzkKpwk6LFfusB6irBF+QfZg8LyaJGCJNsVPg==",
   "success": true,
   "projectFilePath": "D:\\IT_Academy\\Fenicia\\Fenicia\\Fenicia.ERP.Api\\Fenicia.ERP.Api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\VSPC\\.nuget\\packages\\fluentvalidation\\9.5.1\\fluentvalidation.9.5.1.nupkg.sha512",
+    "C:\\Users\\VSPC\\.nuget\\packages\\fluentvalidation.aspnetcore\\9.5.1\\fluentvalidation.aspnetcore.9.5.1.nupkg.sha512",
+    "C:\\Users\\VSPC\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\9.5.1\\fluentvalidation.dependencyinjectionextensions.9.5.1.nupkg.sha512",
     "C:\\Users\\VSPC\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\VSPC\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\VSPC\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

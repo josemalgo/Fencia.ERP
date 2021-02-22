@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Fenicia.Application.Common.Interfaces.UseCases;
+using Fenicia.Application.UseCases;
+using Fenicia.Application.UseCases.RegisterEmployee;
+using Fenicia.ERP.Api.Presenter;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +16,15 @@ namespace Fenicia.ERP.Api.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        private RegisterUserInteractor _registerUserInteractor;
+        private IRegisterEmployeeInteractor _registerEmployeeInteractor;
+        private RegisterEmployeePresenter _registerEmployeePresenter;
+
+        public EmployeesController(IRegisterEmployeeInteractor registerUserInteractor, RegisterEmployeePresenter registerEmployeePresenter)
+        {
+            _registerEmployeeInteractor = registerUserInteractor;
+            _registerEmployeePresenter = registerEmployeePresenter;
+        }
+
         // GET: api/<EmployeesController>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -29,14 +41,14 @@ namespace Fenicia.ERP.Api.Controllers
 
         // POST api/<EmployeesController>
         [HttpPost]
-        public async Task<ActionResult<int>> Post([FromBody] RequestEmployee employee)
+        public async Task<ActionResult<int>> Post([FromBody] RegisterEmployeeRequest employee)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            await _registerUserInteractor.Handle(employee);
+            await _registerEmployeeInteractor.Handle(employee, _registerEmployeePresenter);
             return CreatedAtAction("POST", employee);
         }
 

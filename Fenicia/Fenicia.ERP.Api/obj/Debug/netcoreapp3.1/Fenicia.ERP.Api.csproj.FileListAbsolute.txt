@@ -69,3 +69,7 @@ D:\IT_Academy\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\netcoreapp3.1\Fenicia.ER
 D:\IT_Academy\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\netcoreapp3.1\Fenicia.ERP.Api.dll
 D:\IT_Academy\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\netcoreapp3.1\Fenicia.ERP.Api.pdb
 D:\IT_Academy\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\netcoreapp3.1\Fenicia.ERP.Api.genruntimeconfig.cache
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.ERP.Api\bin\Debug\netcoreapp3.1\FluentValidation.dll
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.ERP.Api\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.ERP.Api\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\netcoreapp3.1\Fenicia.ERP.Api.MvcApplicationPartsAssemblyInfo.cs

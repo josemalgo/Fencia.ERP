@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "q4lz+wUww95t3CV0Gq2V+A1VgIHh139FeexZJ0idVZ4VmDLxMFeK27rT0k0ZbKZVZpuP+HVTk8qqelD7PdzcxQ==",
+  "dgSpecHash": "x3oYayF1ZxbIRKkcV9jq0Fp4yG4r/axNx1YLsbaeICjfA1KnlfA6MNClS/aAup11dM4qIcL5C8gJFCJiyxgXew==",
   "success": true,
   "projectFilePath": "D:\\IT_Academy\\Fenicia\\Fenicia\\Fenicia.Infrastructure\\Fenicia.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\VSPC\\.nuget\\packages\\fluentvalidation\\9.5.1\\fluentvalidation.9.5.1.nupkg.sha512",
+    "C:\\Users\\VSPC\\.nuget\\packages\\fluentvalidation.aspnetcore\\9.5.1\\fluentvalidation.aspnetcore.9.5.1.nupkg.sha512",
+    "C:\\Users\\VSPC\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\9.5.1\\fluentvalidation.dependencyinjectionextensions.9.5.1.nupkg.sha512",
     "C:\\Users\\VSPC\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\VSPC\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\VSPC\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",

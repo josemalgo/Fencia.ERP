@@ -11,11 +11,7 @@ namespace Fenicia.Domain.Entities
         public string Name { get; set; }
         public string Surname { get; set; }
         public int Phone { get; set; }
-        public Gender Gender { get; set; }
-        public DateTime BirthDate { get; set; }
-
-        public Guid MenuId { get; set; }
-        public Menu Menu { get; set; }
+        public bool IsAdmin { get; set; }
 
         public Guid AddressId { get; set; }
         public Address Address { get; set; }

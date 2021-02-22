@@ -11,6 +11,6 @@ namespace Fenicia.Domain.Entities
         public List<Address> Addresses { get; set; }
 
         public Guid idCountry { get; set; }
-        public Country CountryCity { get; set; }
+        public Country Country { get; set; }
     }
 }

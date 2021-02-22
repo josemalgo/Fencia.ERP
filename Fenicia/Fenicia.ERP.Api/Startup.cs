@@ -1,3 +1,5 @@
+using Fenicia.Application.Common.Interfaces.UseCases;
+using Fenicia.Application.UseCases.RegisterEmployee;
 using Fenicia.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

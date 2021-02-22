@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "PC12YS+Vu8U1ES/yqrT/UWj9uQMZt4Wul0sEhdQKx55ECIsfBLUJj98bni2bDnh3C6k1Z/9rQsdXJ3ggmZ5HAw==",
+  "dgSpecHash": "JGuVdRMSO20icMSBM1vHaoKIYNnezmtgiVcYzabZ+2CTuzWKklLQZ3RFDYXIIrbDLiEXPreAemt7ROTjVTMsYw==",
   "success": true,
   "projectFilePath": "D:\\IT_Academy\\Fenicia\\Fenicia\\Fenicia.Application\\Fenicia.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\VSPC\\.nuget\\packages\\fluentvalidation\\9.5.1\\fluentvalidation.9.5.1.nupkg.sha512",
+    "C:\\Users\\VSPC\\.nuget\\packages\\fluentvalidation.aspnetcore\\9.5.1\\fluentvalidation.aspnetcore.9.5.1.nupkg.sha512",
+    "C:\\Users\\VSPC\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\9.5.1\\fluentvalidation.dependencyinjectionextensions.9.5.1.nupkg.sha512",
     "C:\\Users\\VSPC\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.2\\microsoft.entityframeworkcore.5.0.2.nupkg.sha512",
     "C:\\Users\\VSPC\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.2\\microsoft.entityframeworkcore.abstractions.5.0.2.nupkg.sha512",
     "C:\\Users\\VSPC\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.2\\microsoft.entityframeworkcore.analyzers.5.0.2.nupkg.sha512",

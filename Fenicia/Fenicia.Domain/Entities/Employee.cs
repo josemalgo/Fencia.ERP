@@ -8,6 +8,11 @@ namespace Fenicia.Domain.Entities
         public string Job { get; set; }
         public decimal Salary { get; set; }
 
-        public List<Order> Orders { get; set; }
+        public List<Order> Orders { get; }
+
+        public Employee()
+        {
+            Orders = new List<Order>();
+        }
     }
 }
