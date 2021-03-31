@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentValidation.Results;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,13 +7,13 @@ namespace Fenicia.Application.Common.Interfaces.UseCases
 {
     public abstract class ResponseMessageInteractor
     {
-        public bool Success { get; }
-        public string Message { get; }
+        public ValidationResult ValidationResult { get; }
+        public Guid? Id { get; private set; }
 
-        protected ResponseMessageInteractor(bool success = false, string message = null)
+        protected ResponseMessageInteractor(ValidationResult validationResult, Guid? id = null)
         {
-            Success = success;
-            Message = message;
+            Id = id;
+            ValidationResult = validationResult;
         }
     }
 }

@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Fenicia.Application.Common.Interfaces.UseCases
 {
-    public interface IRequestHandlerInteractor<in TUseCaseRequest, out TUseCaseResponse> 
+    public interface IRequestHandlerInteractor<in TUseCaseRequest, TUseCaseResponse> 
         where TUseCaseRequest : IRequestInteractor<TUseCaseResponse>
     {
-        Task<bool> Handle(TUseCaseRequest request, IOutputPort<TUseCaseResponse> outputPort);
+        Task<TUseCaseResponse> Handle(TUseCaseRequest request);
     }
 }

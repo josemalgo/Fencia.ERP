@@ -2,6 +2,8 @@
 using Fenicia.Application.UseCases.RegisterEmployee;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -9,17 +11,11 @@ namespace Fenicia.Application.Common.Validators
 {
     class EmployeeValidator : AbstractValidator<RegisterEmployeeRequest>
     {
-        private IFeniciaDbContext _context;
+        private readonly IFeniciaDbContext _context;
 
         public EmployeeValidator(IFeniciaDbContext context)
         {
             _context = context;
-
-            RuleFor(employee => employee.Email)
-                .EmailAddress().WithMessage("El email no és válido.");
-
-            RuleFor(employee => employee.Password)
-                .NotEmpty().WithMessage("La contraseña no puede estar vacía.");
 
             RuleFor(employee => employee.Dni)
                 .NotEmpty().WithMessage("El DNI no puede estar vacío.")
@@ -35,8 +31,8 @@ namespace Fenicia.Application.Common.Validators
             RuleFor(employee => employee.Phone)
                 .NotEmpty().WithMessage("El teléfono no puede estar vacío.");
 
-            RuleFor(employee => employee.Address)
-                .SetValidator(new AddressValidator());
+            //RuleFor(employee => employee.Address)
+            //    .SetValidator(new AddressValidator());
 
             RuleFor(employee => employee.Job)
                 .NotEmpty().WithMessage("El teléfono no puede estar vacío.");
@@ -47,7 +43,10 @@ namespace Fenicia.Application.Common.Validators
 
         public async Task<bool> BeUniqueDni(string dni, CancellationToken cancellationToken)
         {
-            return await _context.People.AllAsync(p => p.Dni == dni);
+            if (_context.People.Count() == 0)
+                return await _context.People.AllAsync(p => p.Dni == dni);
+
+            return !await _context.People.AllAsync(p => p.Dni == dni);
         }
     }
 }

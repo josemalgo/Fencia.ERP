@@ -10,23 +10,14 @@ namespace Fenicia.Application.Common.Validators
     {
         public AddressValidator()
         {
-            RuleFor(a => a.Street)
+            RuleFor(a => a.Description)
                 .NotEmpty().WithMessage("La calle no puede estar vacía.");
-
-            RuleFor(a => a.Number)
-                .NotEmpty().WithMessage("El número no puede estar vacío.");
-
-            RuleFor(a => a.Floor)
-                .NotEmpty().WithMessage("El piso no puede estar vacío.");
-
-            RuleFor(a => a.Door)
-                .NotEmpty().WithMessage("La puerta no puede estar vacía.");
 
             RuleFor(a => a.ZipCode)
                 .NotEmpty().WithMessage("La código postal no puede estar vacío.");
 
-            RuleFor(a => a.City)
-                .SetValidator(new CityValidator());
+            //RuleFor(a => a.City)
+            //    .SetValidator(new CityValidator());
         }
     }
 }

@@ -8,5 +8,8 @@ namespace Fenicia.Domain.Entities
     {
         public string Email { get; set; }
         public string Password { get; set; }
+
+        public Guid PersonId { get; set; }
+        public Person Person { get; set; }
     }
 }

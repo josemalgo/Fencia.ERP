@@ -1,19 +1,15 @@
+using Fenicia.Application;
+using Fenicia.Application.Common.Interfaces;
 using Fenicia.Application.Common.Interfaces.UseCases;
 using Fenicia.Application.UseCases.RegisterEmployee;
+using Fenicia.ERP.Api.Extensions;
 using Fenicia.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Fenicia.ERP.Api
 {
@@ -29,20 +25,12 @@ namespace Fenicia.ERP.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
-            {
-                options.AddPolicy(name: "EmployeePolicy",
-                    builder =>
-                    {
-                        builder.AllowAnyOrigin()
-                                .AllowAnyMethod()
-                                .AllowAnyHeader();
-                    });
-            });
+            services.AddApplication();
+            services.AddScoped<IFeniciaDbContext, FeniciaDbContext>();
 
-            services.AddDbContext<FeniciaDbContext>(options =>
-               options.UseSqlServer(Configuration.GetConnectionString("SQLServerConnection"),
-               b => b.MigrationsAssembly(typeof(FeniciaDbContext).Assembly.FullName)));
+            services.ConfigureCors();
+            services.ConfigureDbContext(Configuration);
+            services.ConfigureJWT(Configuration);
 
             services.AddControllers();
         }
@@ -60,6 +48,8 @@ namespace Fenicia.ERP.Api
             app.UseRouting();
 
             app.UseCors();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

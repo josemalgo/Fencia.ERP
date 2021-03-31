@@ -73,3 +73,5 @@ D:\IT_Academy\Fenicia\Fenicia\Fenicia.ERP.Api\bin\Debug\netcoreapp3.1\FluentVali
 D:\IT_Academy\Fenicia\Fenicia\Fenicia.ERP.Api\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
 D:\IT_Academy\Fenicia\Fenicia\Fenicia.ERP.Api\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
 D:\IT_Academy\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\netcoreapp3.1\Fenicia.ERP.Api.MvcApplicationPartsAssemblyInfo.cs
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.ERP.Api\bin\Debug\netcoreapp3.1\AutoMapper.dll
+D:\IT_Academy\Fenicia\Fenicia\Fenicia.ERP.Api\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

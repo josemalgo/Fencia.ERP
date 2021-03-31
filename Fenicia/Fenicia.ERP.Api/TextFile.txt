@@ -11,3 +11,32 @@
 		clase podamos utilizarlos.
 
 09/02 - Preferir las convenciones a las configuraciones.
+
+27/02 - Añado AutoMapper, DependencyInjection en application, GetAllEmployeeDTO queda añadir
+		configuración map en clase MappingProfile.
+
+03/03 - Validar campos update 
+
+06/03 - Case Use Customer finished
+
+07/03 - Pendiente de terminar ordersInteractor y OrderValidator
+		OrderItem terminado
+		Categoies terminado
+		Cities terminado
+
+09/03 - Countries terminado
+		Address terminado
+
+10/03 - Creo nueva migración. Order.customerId foreign key cambio delete.cascade por delete.noAction
+		
+		
+
+PREGUNTAS: 
+	- Guardar objetos con datos complejos saveAsync Context (Con transaction)
+	- User mejor si person hereda o es mejor crear tabla aparte con su relacion
+
+TAREAS:
+	- Manejo/prevención de errores mapeo de datos entidad a la base de datos
+	- customer y employee al agregar address con saveChanges antes que estos primeros hay que crear transaccion
+		para que se completen las dos o ninguna?
+	

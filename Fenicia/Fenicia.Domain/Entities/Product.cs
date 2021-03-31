@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Fenicia.Domain.Entities
 {
@@ -17,5 +16,9 @@ namespace Fenicia.Domain.Entities
 
         public List<OrderItem> OrderItems { get; set; }
 
+        public Product()
+        {
+            OrderItems = new List<OrderItem>();
+        }
     }
 }

@@ -27,5 +27,9 @@ namespace Fenicia.Domain.Entities
 
         public List<OrderItem> OrderItems { get; set; }
 
+        public Order()
+        {
+            OrderItems = new List<OrderItem>();
+        }
     }
 }
