@@ -1,4 +1,5 @@
 ﻿using Fenicia.Application.Common.Interfaces.UseCases;
+using Fenicia.Application.UseCases.OrderItems.Add;
 using Fenicia.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,8 +9,17 @@ namespace Fenicia.Application.UseCases.Orders.Add
 {
     public class AddOrderRequest : IRequestInteractor<Guid>
     {
-        public Address DeliveryAddress { get; set; }
-        public Employee Employee { get; set; }
-        public Customer Customer { get; set; }
+        public decimal TotalPrice { get; set; }
+        public int NumberItems { get; set; }
+        public decimal Iva { get; set; }
+        public int Priority { get; set; }
+        public int Status { get; set; }
+        public DateTime EntryDate { get; set; }
+
+        public Guid DeliveryAddressId { get; set; }
+
+        public Guid CustomerId { get; set; }
+
+        public List<AddOrderItemRequest> OrderItems { get; set; }
     }
 }

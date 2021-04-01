@@ -1,5 +1,6 @@
 ﻿using Fenicia.Application.Common.Interfaces.UseCases;
 using Fenicia.Application.UseCases.Addresses.Add;
+using Fenicia.Application.UseCases.Users.Register;
 using Fenicia.Domain.Entities;
 using System;
 
@@ -7,7 +8,7 @@ namespace Fenicia.Application.UseCases.RegisterEmployee
 {
     public class RegisterEmployeeRequest : IRequestInteractor<Guid>
     {
-        public User User { get; set; }
+        public RegisterUserRequest User { get; set; }
 
         public string Dni { get; set; }
         public string Name { get; set; }

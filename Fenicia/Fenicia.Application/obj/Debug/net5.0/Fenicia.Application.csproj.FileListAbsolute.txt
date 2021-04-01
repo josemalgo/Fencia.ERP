@@ -13,3 +13,11 @@ D:\IT_Academy\Fenicia\Fenicia\Fenicia.Application\obj\Debug\net5.0\Fenicia.Appli
 D:\IT_Academy\Fenicia\Fenicia\Fenicia.Application\obj\Debug\net5.0\Fenicia.Application.dll
 D:\IT_Academy\Fenicia\Fenicia\Fenicia.Application\obj\Debug\net5.0\ref\Fenicia.Application.dll
 D:\IT_Academy\Fenicia\Fenicia\Fenicia.Application\obj\Debug\net5.0\Fenicia.Application.pdb
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Application\obj\Debug\net5.0\Fenicia.Application.csprojAssemblyReference.cache
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Application\obj\Debug\net5.0\Fenicia.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Application\obj\Debug\net5.0\Fenicia.Application.AssemblyInfoInputs.cache
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Application\obj\Debug\net5.0\Fenicia.Application.AssemblyInfo.cs
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Application\obj\Debug\net5.0\Fenicia.Application.csproj.CoreCompileInputs.cache
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Application\obj\Debug\net5.0\Fenicia.Application.dll
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Application\obj\Debug\net5.0\ref\Fenicia.Application.dll
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Application\obj\Debug\net5.0\Fenicia.Application.pdb

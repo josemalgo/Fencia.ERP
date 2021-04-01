@@ -8,6 +8,7 @@ namespace Fenicia.Domain.Entities
     {
         public double Quantity { get; set; }
         public decimal Discount { get; set; }
+        public decimal Total { get; set; }
 
         public Guid OrderId { get; set; }
         public Order Order { get; set; }

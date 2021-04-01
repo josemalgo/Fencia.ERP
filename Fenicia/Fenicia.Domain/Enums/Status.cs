@@ -6,10 +6,10 @@ namespace Fenicia.Domain.Enums
 {
     public enum Status
     {
-        Pending, 
-        Proccesing, 
-        Delivery, 
-        Completed, 
-        Cancel
+        Pending = 0, 
+        Proccesing = 1, 
+        Delivery = 2, 
+        Completed = 3, 
+        Cancel = 4
     }
 }

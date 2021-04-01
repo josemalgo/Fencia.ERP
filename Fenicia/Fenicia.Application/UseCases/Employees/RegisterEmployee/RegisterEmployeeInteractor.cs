@@ -2,6 +2,7 @@
 using Fenicia.Application.Common.Interfaces.UseCases.Employees;
 using Fenicia.Application.Common.Validators;
 using Fenicia.Application.UseCases.Addresses.Add;
+using Fenicia.Application.UseCases.Users.Register;
 using Fenicia.Domain.Entities;
 using FluentValidation.Results;
 using Microsoft.EntityFrameworkCore;
@@ -28,7 +29,7 @@ namespace Fenicia.Application.UseCases.RegisterEmployee
 
             try
             {
-                var userId = await new AddUserInteractor()
+                var userId = await new RegisterUserInteractor(_context).Handle(request.User);
                 var addressId = await new AddAddressInteractor(_context).Handle(request.Address);
                 var address = await _context.Addresses.FindAsync(addressId);
                 if (address == null)

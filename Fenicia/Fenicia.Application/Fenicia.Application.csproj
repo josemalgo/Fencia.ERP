@@ -7,7 +7,6 @@
   <ItemGroup>
     <Folder Include="Common\Security\" />
     <Folder Include="Common\Exceptions\" />
-    <Folder Include="UseCases\Orders\Add\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -68,3 +68,13 @@ D:\IT_Academy\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\net5.0\Fenicia.ERP.Api.d
 D:\IT_Academy\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\net5.0\ref\Fenicia.ERP.Api.dll
 D:\IT_Academy\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\net5.0\Fenicia.ERP.Api.pdb
 D:\IT_Academy\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\net5.0\Fenicia.ERP.Api.genruntimeconfig.cache
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\net5.0\Fenicia.ERP.Api.csprojAssemblyReference.cache
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\net5.0\Fenicia.ERP.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\net5.0\Fenicia.ERP.Api.AssemblyInfoInputs.cache
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\net5.0\Fenicia.ERP.Api.AssemblyInfo.cs
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\net5.0\Fenicia.ERP.Api.csproj.CoreCompileInputs.cache
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\net5.0\Fenicia.ERP.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\net5.0\Fenicia.ERP.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\net5.0\Fenicia.ERP.Api.dll
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\net5.0\ref\Fenicia.ERP.Api.dll
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.ERP.Api\obj\Debug\net5.0\Fenicia.ERP.Api.pdb

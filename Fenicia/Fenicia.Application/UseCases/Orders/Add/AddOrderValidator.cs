@@ -1,11 +1,15 @@
-﻿using Fenicia.Application.UseCases.Orders.Add;
-using FluentValidation;
+﻿using FluentValidation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Fenicia.Application.Common.Validators
+namespace Fenicia.Application.UseCases.Orders.Add
 {
-    class OrderValidator : AbstractValidator<AddOrderRequest>
+    class AddOrderValidator: AbstractValidator<AddOrderRequest>
     {
-        public OrderValidator()
+        public AddOrderValidator()
         {
             //TODO: Pendiente de terminar
             RuleFor(o => o.DeliveryAddress)
@@ -17,5 +21,7 @@ namespace Fenicia.Application.Common.Validators
             //RuleFor(o => o.Customer)
             //    .SetValidator(new CustomerValidator());
         }
+    }
+    {
     }
 }
