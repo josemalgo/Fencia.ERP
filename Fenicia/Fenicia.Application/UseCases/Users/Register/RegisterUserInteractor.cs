@@ -1,5 +1,8 @@
 ﻿using Fenicia.Application.Common.Interfaces;
 using Fenicia.Application.Common.Interfaces.UseCases.Users;
+using Fenicia.Application.Common.Validators;
+using Fenicia.Domain.Entities;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +20,32 @@ namespace Fenicia.Application.UseCases.Users.Register
             _context = context;
         }
 
-        public Task<RegisterUserResponse> Handle(RegisterUserRequest request)
+        public async Task<RegisterUserResponse> Handle(RegisterUserRequest request)
         {
-            throw new NotImplementedException();
-        }
+            var result = new RegisterUserValidator(_context).Validate(request);
+            if (!result.IsValid)
+                return new RegisterUserResponse(result);
+
+            var user = new User
+            {
+                Id = Guid.NewGuid(),
+                Email = request.Email,
+                Password = request.Password,
+            };
+
+            try
+            {
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+            }
+            catch(Exception e)
+            {
+                result.Errors.Add(new ValidationFailure("Exception", e.Message));
+                return new RegisterUserResponse(result);
+            }
+
+            return new RegisterUserResponse(result, user.Id);
+
+        }   
     }
 }

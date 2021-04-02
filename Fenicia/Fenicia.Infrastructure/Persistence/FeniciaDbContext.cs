@@ -1,6 +1,7 @@
 ﻿using Fenicia.Application.Common.Interfaces;
 using Fenicia.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,6 +11,8 @@ namespace Fenicia.Infrastructure.Persistence
 {
     public class FeniciaDbContext : DbContext, IFeniciaDbContext
     {
+        private IDbContextTransaction _transaction;
+
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Country> Countries { get; set; }
@@ -91,6 +94,30 @@ namespace Fenicia.Infrastructure.Persistence
             var result = await base.SaveChangesAsync();
 
             return result;
+        }
+
+        public void BeginTransaction()
+        {
+            _transaction = Database.BeginTransaction();
+        }
+
+        public async void Commit()
+        {
+            try
+            {
+                await SaveChangesAsync();
+                _transaction.Commit();
+            }
+            finally
+            {
+                _transaction.Dispose();
+            }
+        }
+
+        public void Rollback()
+        {
+            _transaction.Rollback();
+            _transaction.Dispose();
         }
     }
 }

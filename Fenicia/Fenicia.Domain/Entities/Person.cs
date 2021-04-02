@@ -16,6 +16,7 @@ namespace Fenicia.Domain.Entities
         public Guid AddressId { get; set; }
         public List<Address> Addresses { get; set; }
 
+        public Guid UserId { get; set; }
         public User User { get; set; }
 
         public Person()

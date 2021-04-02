@@ -21,5 +21,8 @@ namespace Fenicia.Application.Common.Interfaces
         public DbSet<User> Users { get; set; }
 
         Task<int> SaveChangesAsync();
+        void BeginTransaction();
+        void Commit();
+        void Rollback();
     }
 }

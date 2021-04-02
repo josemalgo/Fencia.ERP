@@ -3,6 +3,7 @@ using Fenicia.Application.Common.Interfaces.UseCases.Categories;
 using Fenicia.Application.Common.Interfaces.UseCases.Countries;
 using Fenicia.Application.Common.Interfaces.UseCases.Customer;
 using Fenicia.Application.Common.Interfaces.UseCases.Employees;
+using Fenicia.Application.Common.Interfaces.UseCases.Orders;
 using Fenicia.Application.Common.Interfaces.UseCases.Products;
 using Fenicia.Application.Common.Interfaces.UseCases.Users;
 using Fenicia.Application.UseCases.Addresses.Add;
@@ -29,6 +30,11 @@ using Fenicia.Application.UseCases.Employees.Delete;
 using Fenicia.Application.UseCases.Employees.Get.GetAll;
 using Fenicia.Application.UseCases.Employees.Get.GetEmployeeById;
 using Fenicia.Application.UseCases.Employees.Update;
+using Fenicia.Application.UseCases.Orders.Add;
+using Fenicia.Application.UseCases.Orders.Delete;
+using Fenicia.Application.UseCases.Orders.Get.GetAll;
+using Fenicia.Application.UseCases.Orders.Get.GetById;
+using Fenicia.Application.UseCases.Orders.Update;
 using Fenicia.Application.UseCases.Products.Add;
 using Fenicia.Application.UseCases.Products.Delete;
 using Fenicia.Application.UseCases.Products.Get.GetById;
@@ -89,6 +95,13 @@ namespace Fenicia.Application
             services.AddScoped<IAddAddressInteractor, AddAddressInteractor>();
             services.AddScoped<IUpdateAddressInteractor, UpdateAddressInteractor>();
             services.AddScoped<IDeleteAddressInteractor, DeleteAddressInteractor>();
+
+            //Orders
+            services.AddScoped<IGetAllOrderInteractor, GetAllOrderInteractor>();
+            services.AddScoped<IGetOrderByIdInteractor, GetOrderByIdInteractor>();
+            services.AddScoped<IAddOrderInteractor, AddOrderInteractor>();
+            services.AddScoped<IUpdateOrderInteractor, UpdateOrderInteractor>();
+            services.AddScoped<IDeleteOrderInteractor, DeleteOrderInteractor>();
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());

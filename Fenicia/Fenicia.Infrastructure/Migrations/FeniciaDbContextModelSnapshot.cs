@@ -193,6 +193,9 @@ namespace Fenicia.Infrastructure.Migrations
                     b.Property<double>("Quantity")
                         .HasColumnType("float");
 
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId");
@@ -229,9 +232,15 @@ namespace Fenicia.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Dni")
+                        .IsUnique();
+
+                    b.HasIndex("UserId")
                         .IsUnique();
 
                     b.ToTable("Person");
@@ -284,15 +293,9 @@ namespace Fenicia.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("PersonId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
                     b.HasIndex("Email")
-                        .IsUnique();
-
-                    b.HasIndex("PersonId")
                         .IsUnique();
 
                     b.ToTable("User");
@@ -387,6 +390,17 @@ namespace Fenicia.Infrastructure.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("Fenicia.Domain.Entities.Person", b =>
+                {
+                    b.HasOne("Fenicia.Domain.Entities.User", "User")
+                        .WithOne("Person")
+                        .HasForeignKey("Fenicia.Domain.Entities.Person", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Fenicia.Domain.Entities.Product", b =>
                 {
                     b.HasOne("Fenicia.Domain.Entities.Category", "Category")
@@ -396,17 +410,6 @@ namespace Fenicia.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("Fenicia.Domain.Entities.User", b =>
-                {
-                    b.HasOne("Fenicia.Domain.Entities.Person", "Person")
-                        .WithOne("User")
-                        .HasForeignKey("Fenicia.Domain.Entities.User", "PersonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Person");
                 });
 
             modelBuilder.Entity("Fenicia.Domain.Entities.Employee", b =>
@@ -441,13 +444,16 @@ namespace Fenicia.Infrastructure.Migrations
             modelBuilder.Entity("Fenicia.Domain.Entities.Person", b =>
                 {
                     b.Navigation("Addresses");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Fenicia.Domain.Entities.Product", b =>
                 {
                     b.Navigation("OrderItems");
+                });
+
+            modelBuilder.Entity("Fenicia.Domain.Entities.User", b =>
+                {
+                    b.Navigation("Person");
                 });
 
             modelBuilder.Entity("Fenicia.Domain.Entities.Employee", b =>

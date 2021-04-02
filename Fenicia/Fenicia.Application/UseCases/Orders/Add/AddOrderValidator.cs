@@ -1,27 +1,34 @@
-﻿using FluentValidation;
+﻿using Fenicia.Domain.Enums;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Fenicia.Application.UseCases.Orders.Add
 {
-    class AddOrderValidator: AbstractValidator<AddOrderRequest>
+    class AddOrderValidator : AbstractValidator<AddOrderRequest>
     {
         public AddOrderValidator()
         {
-            //TODO: Pendiente de terminar
-            RuleFor(o => o.DeliveryAddress)
-                .SetValidator(new AddressValidator());
+            RuleFor(order => order.Status)
+                .NotEmpty().WithMessage("El estado no puede estar vacío.")
+                .MustAsync(EnumIsValid<Status>).WithMessage("El estado no existe.");
 
-            //RuleFor(o => o.Employee)
-            //    .SetValidator(new EmployeeValidator());
+            RuleFor(order => order.Status)
+                .NotEmpty().WithMessage("El nivel de prioridad no puede estar vacío.")
+                .MustAsync(EnumIsValid<PriorityLevel>).WithMessage("El nivel de prioridad no existe.");
+        }
 
-            //RuleFor(o => o.Customer)
-            //    .SetValidator(new CustomerValidator());
+        public async Task<bool> EnumIsValid<T>(int value, CancellationToken cancellationToken)
+        {
+            HashSet<int> validVals = new HashSet<int>((int[])Enum.GetValues(typeof(T)));
+
+            return validVals.Contains(value);
         }
     }
-    {
-    }
+
 }
+

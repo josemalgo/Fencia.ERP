@@ -14,7 +14,6 @@ namespace Fenicia.Application.UseCases.Orders.Add
         public decimal Iva { get; set; }
         public int Priority { get; set; }
         public int Status { get; set; }
-        public DateTime EntryDate { get; set; }
 
         public Guid DeliveryAddressId { get; set; }
 

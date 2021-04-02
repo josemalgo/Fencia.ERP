@@ -38,27 +38,14 @@ namespace Fenicia.Application.UseCases.Orders.Add
                 if (customer == null)
                     return Guid.Empty;
 
-                var priority = (PriorityLevel)request.Priority;
-
-                var status = (Status)request.Status;
-
-                //int userInput = 4;
-                //// below, Enum.GetValues converts enum to array. We then convert the array to hashset.
-                //HashSet<int> validVals = new HashSet<int>((int[])Enum.GetValues(typeof(MyEnum)));
-                //// the following could be in a loop, or do multiple comparisons, etc.
-                //if (validVals.Contains(userInput))
-                //{
-                //    // is valid
-                //}
-
-
                 var order = new Order()
                 {
                     Id = Guid.NewGuid(),
                     TotalPrice = request.TotalPrice,
                     NumberItems = request.NumberItems,
-                    Priority = priority,
-                    Status = status,
+                    Iva = request.Iva,
+                    Priority = (PriorityLevel)request.Priority,
+                    Status = (Status)request.Status,
                     EntryDate = DateTime.Today,
                     DeliveryAddressId = request.DeliveryAddressId,
                     DeliveryAddress = deliveryAddress,
@@ -66,31 +53,38 @@ namespace Fenicia.Application.UseCases.Orders.Add
                     Customer = customer,
                 };
 
-                FillOrderItemsList(order, request.OrderItems);
+                if(FillOrderItemsList(order, request.OrderItems).Result)
+                {
+                    _context.Orders.Add(order);
+                    await _context.SaveChangesAsync();
+                    return order.Id;
+                }
 
-                _context.Orders.Add(order);
-                await _context.SaveChangesAsync();
-
+                return Guid.Empty;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
             
-            return Guid.NewGuid();
+            return Guid.Empty;
         }
 
-        private async void FillOrderItemsList(Order order, List<AddOrderItemRequest> orderItems)
+        private async Task<bool> FillOrderItemsList(Order order, List<AddOrderItemRequest> orderItems)
         {
             foreach(var orderItem in orderItems)
             {
                 var id = new AddOrderItemInteractor(_context).Handle(orderItem);
-                //if id is Guid.Empty return message orderitem not added + errors and cancel
-                //addOrder
+                if (id.Result == Guid.Empty)
+                    return false;
+
                 var ordItm = await _context.OrderItems.FindAsync(id);
-                if (ordItm != null)
+                if (ordItm == null)
+                    return false;
                     order.OrderItems.Add(ordItm);
             }
+
+            return true;
         }
     }
 }

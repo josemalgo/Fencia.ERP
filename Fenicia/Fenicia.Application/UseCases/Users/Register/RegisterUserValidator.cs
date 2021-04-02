@@ -1,5 +1,4 @@
 ﻿using Fenicia.Application.Common.Interfaces;
-using Fenicia.Domain.Entities;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,13 +8,13 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Fenicia.Application.Common.Validators
+namespace Fenicia.Application.UseCases.Users.Register
 {
-    class UserValidator : AbstractValidator<User>
+    public class RegisterUserValidator : AbstractValidator<RegisterUserRequest>
     {
         private readonly IFeniciaDbContext _context;
 
-        public UserValidator(IFeniciaDbContext context)
+        public RegisterUserValidator(IFeniciaDbContext context)
         {
             _context = context;
 
@@ -30,7 +29,7 @@ namespace Fenicia.Application.Common.Validators
 
         private async Task<bool> BeUniqueEmail(string email, CancellationToken arg2)
         {
-            if (_context.People.Count() == 0)
+            if (_context.Users.Count() == 0)
                 return await _context.Users.AllAsync(p => p.Email == email);
 
             return !await _context.Users.AllAsync(p => p.Email == email);

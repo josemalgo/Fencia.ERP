@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Fenicia.Application.Common.Interfaces.UseCases.Orders
 {
-    interface IDeleteOrderInteractor : IRequestHandlerInteractor<DeleteOrderRequest, Guid>
+    public interface IDeleteOrderInteractor : IRequestHandlerInteractor<DeleteOrderRequest, Guid>
     {
     }
 }
