@@ -105,7 +105,7 @@ namespace Fenicia.Infrastructure.Persistence
         {
             try
             {
-                await SaveChangesAsync();
+                await base.SaveChangesAsync();
                 _transaction.Commit();
             }
             finally

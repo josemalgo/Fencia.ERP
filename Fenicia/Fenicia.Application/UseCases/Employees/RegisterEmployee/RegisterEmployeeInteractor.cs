@@ -27,15 +27,16 @@ namespace Fenicia.Application.UseCases.RegisterEmployee
             if (!result.IsValid)
                 return Guid.Empty;
 
+            
+
             try
             {
                 _context.BeginTransaction();
-
                 var user = await _context.Users.FindAsync(new RegisterUserInteractor(_context).Handle(request.User).Result.Id);
                 if(user == null)
                     return Guid.Empty;
                 
-                var address = await _context.Addresses.FindAsync(new AddAddressInteractor(_context).Handle(request.Address).Result);
+                var address = await _context.Addresses.FindAsync(request.AddressId);
                 if (address == null)
                     return Guid.Empty;
 
@@ -66,7 +67,6 @@ namespace Fenicia.Application.UseCases.RegisterEmployee
             catch(Exception e)
             {
                 Console.Write(e);
-                _context.Rollback();
             }
 
             return Guid.Empty;
