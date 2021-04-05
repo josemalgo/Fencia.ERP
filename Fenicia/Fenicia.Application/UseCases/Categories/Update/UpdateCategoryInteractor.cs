@@ -1,5 +1,6 @@
 ﻿using Fenicia.Application.Common.Interfaces;
 using Fenicia.Application.Common.Interfaces.UseCases.Categories;
+using Fenicia.Application.Common.Validators;
 using System;
 using System.Threading.Tasks;
 
@@ -23,9 +24,13 @@ namespace Fenicia.Application.UseCases.Categories.Update
 
             }
 
+            var validator = new UpdateCategoryValidator(_context).Validate(request);
+            if (!validator.IsValid)
+                return Guid.Empty;
+
             category.Name = request.Name;
 
-            await _context.Categories.AddAsync(category);
+            _context.Categories.Update(category);
             await _context.SaveChangesAsync();
 
             return category.Id;

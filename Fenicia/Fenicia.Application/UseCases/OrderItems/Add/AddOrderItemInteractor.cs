@@ -23,30 +23,34 @@ namespace Fenicia.Application.UseCases.OrderItems.Add
             var validator = new AddOrderItemValidator().Validate(request);
 
             if (validator.IsValid)
-            {
-
-            }
+                return Guid.Empty;
 
             var order = await _context.Orders.FindAsync(request.OrderId);
             var product = await _context.Products.FindAsync(request.ProductId);
 
             if(order == null || product == null)
-            {
-
-            }
+                return Guid.Empty;
 
             var orderItem = new OrderItem()
             {
                 Id = Guid.NewGuid(),
                 Quantity = request.Quantity,
+                Total = request.Total,
                 OrderId = request.OrderId,
                 Order = order,
                 ProductId = request.ProductId,
                 Product = product
             };
 
-            await _context.OrderItems.AddAsync(orderItem);
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.OrderItems.AddAsync(orderItem);
+                await _context.SaveChangesAsync();
+            }
+            catch(Exception e)
+            {
+
+            }
 
             return orderItem.Id;
         }

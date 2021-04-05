@@ -4,10 +4,7 @@ using Fenicia.Application.Common.Validators;
 using Fenicia.Application.UseCases.Addresses.Add;
 using Fenicia.Application.UseCases.Users.Register;
 using Fenicia.Domain.Entities;
-using FluentValidation.Results;
-using Microsoft.EntityFrameworkCore;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Fenicia.Application.UseCases.RegisterEmployee
@@ -27,16 +24,16 @@ namespace Fenicia.Application.UseCases.RegisterEmployee
             if (!result.IsValid)
                 return Guid.Empty;
 
-            
-
             try
             {
                 _context.BeginTransaction();
-                var user = await _context.Users.FindAsync(new RegisterUserInteractor(_context).Handle(request.User).Result.Id);
+                var user = await _context.Users.FindAsync(
+                    new RegisterUserInteractor(_context).Handle(request.User).Result.Id);
                 if(user == null)
                     return Guid.Empty;
-                
-                var address = await _context.Addresses.FindAsync(request.AddressId);
+
+                var address = await _context.Addresses.FindAsync(
+                    new AddAddressInteractor(_context).Handle(request.Address).Result);
                 if (address == null)
                     return Guid.Empty;
 
@@ -48,7 +45,6 @@ namespace Fenicia.Application.UseCases.RegisterEmployee
                     Surname = request.Surname,
                     Phone = request.Phone,
                     IsAdmin = request.IsAdmin,
-                    AddressId = address.Id,
                     Job = request.Job,
                     Salary = request.Salary,
                     UserId = user.Id,
@@ -59,8 +55,8 @@ namespace Fenicia.Application.UseCases.RegisterEmployee
                 address.Person = employee;
                 employee.Addresses.Add(address);
 
-                _context.Employees.Add(employee);
-                _context.Commit();
+                await _context.Employees.AddAsync(employee);
+                await _context.Commit();
 
                 return employee.Id;
             }

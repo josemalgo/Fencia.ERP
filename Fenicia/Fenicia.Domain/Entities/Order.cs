@@ -19,8 +19,9 @@ namespace Fenicia.Domain.Entities
         public Guid DeliveryAddressId { get; set; }
         public Address DeliveryAddress { get; set; }
 
-        public Guid EmployeeId { get; set; }
-        public Employee Employee { get; set; }
+        public Guid? EmployeeId { get; set; }
+        public Employee? Employee { get; set; }
+        //TODO: permitir valores nulos en employee - migration database
 
         public Guid CustomerId { get; set; }
         public Customer Customer { get; set; }

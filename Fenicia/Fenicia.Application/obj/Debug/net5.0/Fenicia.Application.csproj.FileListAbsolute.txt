@@ -21,3 +21,10 @@ C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Application\obj\Debug\net5.0\Fenic
 C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Application\obj\Debug\net5.0\Fenicia.Application.dll
 C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Application\obj\Debug\net5.0\ref\Fenicia.Application.dll
 C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Application\obj\Debug\net5.0\Fenicia.Application.pdb
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Application\bin\Debug\net5.0\Fenicia.Application.deps.json
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Application\bin\Debug\net5.0\Fenicia.Application.dll
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Application\bin\Debug\net5.0\ref\Fenicia.Application.dll
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Application\bin\Debug\net5.0\Fenicia.Application.pdb
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Application\bin\Debug\net5.0\Fenicia.Domain.dll
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Application\bin\Debug\net5.0\Fenicia.Domain.pdb
+C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Application\obj\Debug\net5.0\Fenicia.Application.csproj.CopyComplete

@@ -9,6 +9,6 @@ namespace Fenicia.Application.UseCases.Countries.Update
     public class UpdateCountryRequest : IRequestInteractor<Guid>
     {
         public Guid Id { get; set; }
-        public Country country { get; set; }
+        public string Name { get; set; }
     }
 }

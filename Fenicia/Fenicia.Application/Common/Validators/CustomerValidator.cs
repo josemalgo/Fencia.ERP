@@ -24,8 +24,9 @@ namespace Fenicia.Application.Common.Validators
                 .EmailAddress().WithMessage("El email no és válido.")
                 .MustAsync(BeUniqueEmail).WithMessage("El email introducido ya existe.");
 
-            RuleFor(c => c.Email)
-                .NotEmpty().WithMessage("El nombre de la ciudad no puede estar vacía.");
+            //RuleFor(c => c.)
+            //    .SetValidator<AddAddressValidator>
+            //    .NotEmpty().WithMessage("El nombre de la ciudad no puede estar vacía.");
 
             RuleFor(c => c.Nif)
                 .NotEmpty().WithMessage("El DNI no puede estar vacío.")

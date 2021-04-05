@@ -22,7 +22,7 @@ namespace Fenicia.Application.Common.Interfaces
 
         Task<int> SaveChangesAsync();
         void BeginTransaction();
-        void Commit();
+        Task Commit();
         void Rollback();
     }
 }

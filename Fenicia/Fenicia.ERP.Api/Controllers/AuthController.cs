@@ -1,5 +1,8 @@
 ﻿using Fenicia.Application.Common.Interfaces.UseCases.Users;
+using Fenicia.Application.UseCases.Users.Get;
 using Fenicia.Application.UseCases.Users.Login;
+using Fenicia.Application.UseCases.Users.Register;
+using Fenicia.Application.UseCases.Users.UpdateUser;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,17 +18,24 @@ namespace Fenicia.ERP.Api.Controllers
     public class AuthController : ControllerBase
     {
         private ILoginUserInteractor _loginUserInteractor;
+        private IRegisterUserInteractor _registerUserInteractor;
+        private IUpdateUserInteractor _updateUserInteractor;
+        private IGetAllUsersInteractor _getAllUsersInteractor;
 
-        public AuthController(ILoginUserInteractor loginUserInteractor)
+        public AuthController(ILoginUserInteractor loginUserInteractor, IRegisterUserInteractor registerUserInteractor,
+            IUpdateUserInteractor updateUserInteractor, IGetAllUsersInteractor getAllUsersInteractor)
         {
             _loginUserInteractor = loginUserInteractor;
+            _registerUserInteractor = registerUserInteractor;
+            _updateUserInteractor = updateUserInteractor;
+            _getAllUsersInteractor = getAllUsersInteractor;
         }
 
         // GET: api/<UserController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<ActionResult<GetAllUsersResponse>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return await _getAllUsersInteractor.Handle(new GetAllUsersRequest());
         }
 
         // GET api/<UserController>/5
@@ -48,10 +58,21 @@ namespace Fenicia.ERP.Api.Controllers
             return token;
         }
 
+        // POST api/<UserController>
+        [HttpPost, Route("register")]
+        public async Task<ActionResult<RegisterUserResponse>> Post([FromBody] RegisterUserRequest request)
+        {
+            return await _registerUserInteractor.Handle(request);
+        }
+
         // PUT api/<UserController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<ActionResult<Guid>> Put(Guid id, [FromBody] UpdateUserRequest request)
         {
+            if (!ModelState.IsValid || id != request.Id)
+                return BadRequest(Guid.Empty);
+
+            return await _updateUserInteractor.Handle(request);
         }
 
         // DELETE api/<UserController>/5

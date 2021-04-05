@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Fenicia.Infrastructure.Migrations
 {
     [DbContext(typeof(FeniciaDbContext))]
-    [Migration("20210402142108_FeniciaMigration")]
+    [Migration("20210402195151_FeniciaMigration")]
     partial class FeniciaMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

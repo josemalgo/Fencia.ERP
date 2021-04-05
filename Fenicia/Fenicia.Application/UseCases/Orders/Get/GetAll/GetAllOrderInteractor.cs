@@ -1,5 +1,8 @@
-﻿using Fenicia.Application.Common.Interfaces;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using Fenicia.Application.Common.Interfaces;
 using Fenicia.Application.Common.Interfaces.UseCases.Orders;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,15 +14,25 @@ namespace Fenicia.Application.UseCases.Orders.Get.GetAll
     public class GetAllOrderInteractor : IGetAllOrderInteractor
     {
         private IFeniciaDbContext _context;
+        private IMapper _mapper;
 
-        public GetAllOrderInteractor(IFeniciaDbContext context)
+        public GetAllOrderInteractor(IFeniciaDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        public Task<GetAllOrderResponse> Handle(GetAllOrderRequest request)
+        public async Task<GetAllOrderResponse> Handle(GetAllOrderRequest request)
         {
-            throw new NotImplementedException();
+            var response = new GetAllOrderResponse();
+
+            var orders = await _context.Orders
+                .ProjectTo<GetAllOrdersDTO>(_mapper.ConfigurationProvider)
+                .ToListAsync();
+
+            response.Orders = orders;
+
+            return response;
         }
     }
 }

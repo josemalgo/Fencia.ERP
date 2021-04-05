@@ -17,6 +17,9 @@ namespace Fenicia.Application.UseCases.Orders.Add
 
         public Guid DeliveryAddressId { get; set; }
 
+        //opcional hasta que modifique employeeId en bbdd para permitir valores nulos
+        public Guid EmployeeId { get; set; }
+
         public Guid CustomerId { get; set; }
 
         public List<AddOrderItemRequest> OrderItems { get; set; }

@@ -25,15 +25,15 @@ namespace Fenicia.Application.UseCases.Countries.Update
 
             }
 
-            //var validator = new CountryValidator(_context).Validate(request);
-            var validator = new CountryValidator(_context).Validate(new Domain.Entities.Country());
+            var validator = new UpdateCountryValidator(_context).Validate(request);
+            //var validator = new AddCountryValidator(_context).Validate(new Domain.Entities.Country());
 
             if (!validator.IsValid)
             {
 
             }
 
-            country.Name = request.country.Name;
+            country.Name = request.Name;
 
             _context.Countries.Update(country);
             await _context.SaveChangesAsync();

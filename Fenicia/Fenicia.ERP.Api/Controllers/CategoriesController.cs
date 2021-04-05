@@ -55,7 +55,7 @@ namespace Fenicia.ERP.Api.Controllers
 
             var result = await _getCategoryByIdInteractor.Handle(request);
 
-            return Ok();
+            return Ok(result);
         }
 
         // POST api/<CategoriesController>
@@ -76,9 +76,9 @@ namespace Fenicia.ERP.Api.Controllers
 
         // PUT api/<CategoriesController>/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<Guid>> Put(int id, [FromBody] UpdateCategoryRequest request)
+        public async Task<ActionResult<Guid>> Put(Guid id, [FromBody] UpdateCategoryRequest request)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid || id != request.Id)
             {
                 return BadRequest(ModelState);
             }

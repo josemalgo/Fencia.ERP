@@ -7,5 +7,6 @@ namespace Fenicia.Application.UseCases.Orders.Get.GetById
 {
     public class GetOrderByIdRequest : IRequestInteractor<GetOrderByIdResponse>
     {
+        public Guid Id { get; set; }
     }
 }

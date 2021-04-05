@@ -74,9 +74,9 @@ namespace Fenicia.ERP.Api.Controllers
 
         // PUT api/<ValuesController>/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<Guid>> Put(int id, [FromBody] UpdateProductRequest request)
+        public async Task<ActionResult<Guid>> Put(Guid id, [FromBody] UpdateProductRequest request)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid || id != request.Id)
             {
                 return BadRequest(ModelState);
             }

@@ -21,9 +21,7 @@ namespace Fenicia.Application.UseCases.OrderItems.Delete
             var orderItem = await _context.OrderItems.FindAsync(request.Id); 
 
             if (orderItem == null)
-            {
-
-            }
+                return Guid.Empty;
 
             _context.OrderItems.Remove(orderItem);
             await _context.SaveChangesAsync();

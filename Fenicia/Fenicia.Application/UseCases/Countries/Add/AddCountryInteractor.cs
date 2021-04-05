@@ -20,9 +20,7 @@ namespace Fenicia.Application.UseCases.Countries.Add
 
         public async Task<Guid> Handle(AddCountryRequest request)
         {
-            //var validator = new CountryValidator(_context).Validate(request);
-
-            var validator = new CountryValidator(_context).Validate(new Country());
+            var validator = new AddCountryValidator(_context).Validate(request);
 
             if (!validator.IsValid)
             {

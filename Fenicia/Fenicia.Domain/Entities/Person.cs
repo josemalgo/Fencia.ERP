@@ -13,7 +13,6 @@ namespace Fenicia.Domain.Entities
         public int Phone { get; set; }
         public bool IsAdmin { get; set; }
 
-        public Guid AddressId { get; set; }
         public List<Address> Addresses { get; set; }
 
         public Guid UserId { get; set; }

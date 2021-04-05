@@ -91,9 +91,17 @@ namespace Fenicia.Infrastructure.Persistence
 
         public async Task<int> SaveChangesAsync()
         {
-            var result = await base.SaveChangesAsync();
+            try
+            {
+                var result = await base.SaveChangesAsync();
+                return result;
+            }
+            catch(Exception e)
+            {
+                Console.Write(e);
+            }
 
-            return result;
+            return 0;
         }
 
         public void BeginTransaction()
@@ -101,7 +109,7 @@ namespace Fenicia.Infrastructure.Persistence
             _transaction = Database.BeginTransaction();
         }
 
-        public async void Commit()
+        public async Task Commit()
         {
             try
             {

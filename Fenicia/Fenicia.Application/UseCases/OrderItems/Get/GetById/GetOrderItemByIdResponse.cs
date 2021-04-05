@@ -6,6 +6,6 @@ namespace Fenicia.Application.UseCases.OrderItems.Get.GetById
 {
     public class GetOrderItemByIdResponse
     {
-        public GetOrderItemDTO orderItem { get; set; }
+        public GetAllOrderItemDTO orderItem { get; set; }
     }
 }

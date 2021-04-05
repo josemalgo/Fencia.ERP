@@ -16,9 +16,16 @@ namespace Fenicia.Application.UseCases.Orders.Delete
         {
             _context = context;
         }
-        public Task<Guid> Handle(DeleteOrderRequest request)
+        public async Task<Guid> Handle(DeleteOrderRequest request)
         {
-            throw new NotImplementedException();
+            var order = await _context.Orders.FindAsync(request.Id);
+            if (order == null)
+                return Guid.Empty;
+
+            _context.Orders.Remove(order);
+            await _context.SaveChangesAsync();
+            //TODO: Crear response??
+            return Guid.Empty;
         }
     }
 }

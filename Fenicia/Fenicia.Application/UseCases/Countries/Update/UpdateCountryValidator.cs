@@ -1,20 +1,16 @@
 ﻿using Fenicia.Application.Common.Interfaces;
-using Fenicia.Domain.Entities;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Fenicia.Application.Common.Validators
+namespace Fenicia.Application.UseCases.Countries.Update
 {
-    class CountryValidator : AbstractValidator<Country>
+    public class UpdateCountryValidator: AbstractValidator<UpdateCountryRequest>
     {
         private IFeniciaDbContext _context;
 
-        public CountryValidator(IFeniciaDbContext context)
+        public UpdateCountryValidator(IFeniciaDbContext context)
         {
             _context = context;
 

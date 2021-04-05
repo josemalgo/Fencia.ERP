@@ -3,6 +3,7 @@ using Fenicia.Application.Common.Interfaces.UseCases.Categories;
 using Fenicia.Application.Common.Interfaces.UseCases.Countries;
 using Fenicia.Application.Common.Interfaces.UseCases.Customer;
 using Fenicia.Application.Common.Interfaces.UseCases.Employees;
+using Fenicia.Application.Common.Interfaces.UseCases.OrderItems;
 using Fenicia.Application.Common.Interfaces.UseCases.Orders;
 using Fenicia.Application.Common.Interfaces.UseCases.Products;
 using Fenicia.Application.Common.Interfaces.UseCases.Users;
@@ -30,6 +31,7 @@ using Fenicia.Application.UseCases.Employees.Delete;
 using Fenicia.Application.UseCases.Employees.Get.GetAll;
 using Fenicia.Application.UseCases.Employees.Get.GetEmployeeById;
 using Fenicia.Application.UseCases.Employees.Update;
+using Fenicia.Application.UseCases.OrderItems.Get.GetAll;
 using Fenicia.Application.UseCases.Orders.Add;
 using Fenicia.Application.UseCases.Orders.Delete;
 using Fenicia.Application.UseCases.Orders.Get.GetAll;
@@ -41,7 +43,10 @@ using Fenicia.Application.UseCases.Products.Get.GetById;
 using Fenicia.Application.UseCases.Products.GetProduct;
 using Fenicia.Application.UseCases.Products.Update;
 using Fenicia.Application.UseCases.RegisterEmployee;
+using Fenicia.Application.UseCases.Users.Get;
 using Fenicia.Application.UseCases.Users.Login;
+using Fenicia.Application.UseCases.Users.Register;
+using Fenicia.Application.UseCases.Users.UpdateUser;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
@@ -59,7 +64,11 @@ namespace Fenicia.Application
             services.AddScoped<IUpdateEmployeeInteractor, UpdateEmployeeInteractor>();
             services.AddScoped<IDeleteEmployeeInteractor, DeleteEmployeeInteractor>();
            
+            //Users
             services.AddScoped<ILoginUserInteractor, LoginUserInteractor>();
+            services.AddScoped<IRegisterUserInteractor, RegisterUserInteractor>();
+            services.AddScoped<IGetAllUsersInteractor, GetAllUsersInteractor>();
+            services.AddScoped<IUpdateUserInteractor, UpdateUserInteractor>();
 
             //Categories
             services.AddScoped<IAddCategoryInteractor, AddCategoryInteractor>();
@@ -102,6 +111,9 @@ namespace Fenicia.Application
             services.AddScoped<IAddOrderInteractor, AddOrderInteractor>();
             services.AddScoped<IUpdateOrderInteractor, UpdateOrderInteractor>();
             services.AddScoped<IDeleteOrderInteractor, DeleteOrderInteractor>();
+
+            //OrderItems
+            services.AddScoped<IGetAllOrderItemInteractor, GetAllOrderItemInteractor>();
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());

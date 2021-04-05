@@ -7,5 +7,6 @@ namespace Fenicia.Application.UseCases.Orders.Delete
 {
     public class DeleteOrderRequest : IRequestInteractor<Guid>
     {
+        public Guid Id { get; set; }
     }
 }

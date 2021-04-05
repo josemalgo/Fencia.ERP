@@ -10,19 +10,19 @@ namespace Fenicia.Application.UseCases.Products.Update
     {
         public UpdateProductValidator()
         {
-            RuleFor(p => p.product.Name)
+            RuleFor(p => p.Name)
                  .NotEmpty().WithMessage("El nombre del producto no puede estar vacío.");
 
-            RuleFor(p => p.product.Description)
+            RuleFor(p => p.Description)
                 .NotEmpty().WithMessage("La descripción del producto no puede estar vacío");
 
-            RuleFor(p => p.product.Price)
+            RuleFor(p => p.Price)
                 .NotEmpty().WithMessage("El precio del producto no puede estar vacío");
 
-            RuleFor(p => p.product.Iva)
+            RuleFor(p => p.Iva)
                 .NotEmpty().WithMessage("El IVA del producto no puede estar vacío");
 
-            RuleFor(p => p.product.Stock)
+            RuleFor(p => p.Stock)
                 .NotEmpty().WithMessage("El stock del producto no puede estar vacío");
 
             //RuleFor(product => product.CategoryId)

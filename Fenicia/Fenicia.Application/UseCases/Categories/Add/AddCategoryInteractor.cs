@@ -20,7 +20,7 @@ namespace Fenicia.Application.UseCases.Categories.Add
 
         public async Task<Guid> Handle(AddCategoryRequest request)
         {
-            var validator = new CategoryValidator(_context).Validate(request);
+            var validator = new AddCategoryValidator(_context).Validate(request);
 
             if (!validator.IsValid)
             {

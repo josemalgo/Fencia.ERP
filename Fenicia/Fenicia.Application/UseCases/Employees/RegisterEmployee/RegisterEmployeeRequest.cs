@@ -16,7 +16,7 @@ namespace Fenicia.Application.UseCases.RegisterEmployee
         public int Phone { get; set; }
         public bool IsAdmin { get; set; }
 
-        public Guid AddressId { get; set; }
+        public AddAddressRequest Address { get; set; }
 
         public string Job { get; set; }
         public decimal Salary { get; set; }

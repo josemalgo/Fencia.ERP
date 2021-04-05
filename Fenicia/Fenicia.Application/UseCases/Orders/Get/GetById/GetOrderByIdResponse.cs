@@ -6,5 +6,6 @@ namespace Fenicia.Application.UseCases.Orders.Get.GetById
 {
     public class GetOrderByIdResponse
     {
+        public GetOrderByIdDTO Order { get; set; }
     }
 }

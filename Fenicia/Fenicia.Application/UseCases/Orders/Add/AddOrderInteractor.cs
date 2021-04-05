@@ -24,9 +24,7 @@ namespace Fenicia.Application.UseCases.Orders.Add
         {
             var validator = new AddOrderValidator().Validate(request);
             if (!validator.IsValid)
-            {
                 return Guid.Empty;
-            }
 
             try
             {
@@ -36,6 +34,10 @@ namespace Fenicia.Application.UseCases.Orders.Add
 
                 var customer = await _context.Customers.FindAsync(request.CustomerId);
                 if (customer == null)
+                    return Guid.Empty;
+
+                var employee = await _context.Employees.FindAsync(request.EmployeeId);
+                if (employee == null)
                     return Guid.Empty;
 
                 var order = new Order()
@@ -51,11 +53,15 @@ namespace Fenicia.Application.UseCases.Orders.Add
                     DeliveryAddress = deliveryAddress,
                     CustomerId = request.CustomerId,
                     Customer = customer,
+                    Employee = employee,
+                    EmployeeId = employee.Id
                 };
 
-                if(FillOrderItemsList(order, request.OrderItems).Result)
+                _context.Orders.Add(order);
+
+                if (FillOrderItemsList(order, request.OrderItems).Result)
                 {
-                    _context.Orders.Add(order);
+                    
                     await _context.SaveChangesAsync();
                     return order.Id;
                 }
@@ -74,11 +80,9 @@ namespace Fenicia.Application.UseCases.Orders.Add
         {
             foreach(var orderItem in orderItems)
             {
-                var id = new AddOrderItemInteractor(_context).Handle(orderItem);
-                if (id.Result == Guid.Empty)
-                    return false;
-
-                var ordItm = await _context.OrderItems.FindAsync(id);
+                orderItem.OrderId = order.Id;
+                var ordItm = await _context.OrderItems.
+                    FindAsync(new AddOrderItemInteractor(_context).Handle(orderItem).Result);
                 if (ordItm == null)
                     return false;
                     order.OrderItems.Add(ordItm);

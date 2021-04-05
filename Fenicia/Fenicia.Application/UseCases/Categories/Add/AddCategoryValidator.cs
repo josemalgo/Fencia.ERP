@@ -4,17 +4,18 @@ using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Fenicia.Application.Common.Validators
 {
-    public class CategoryValidator : AbstractValidator<AddCategoryRequest>
+    public class AddCategoryValidator : AbstractValidator<AddCategoryRequest>
     {
         private IFeniciaDbContext _context;
 
-        public CategoryValidator(IFeniciaDbContext context)
+        public AddCategoryValidator(IFeniciaDbContext context)
         {
             _context = context;
 
@@ -25,7 +26,10 @@ namespace Fenicia.Application.Common.Validators
 
         public async Task<bool> BeUniqueName(string name, CancellationToken cancellationToken)
         {
-            return await _context.Categories.AllAsync(c => c.Name == name);
+            if (_context.Categories.Count() == 0)
+                return await _context.Categories.AllAsync(c => c.Name == name);
+
+            return !await _context.Categories.AllAsync(c => c.Name == name);
         }
     }
 }

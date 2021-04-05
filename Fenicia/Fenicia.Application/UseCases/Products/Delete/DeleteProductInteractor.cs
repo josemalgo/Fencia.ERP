@@ -22,7 +22,7 @@ namespace Fenicia.Application.UseCases.Products.Delete
 
             if(product == null)
             {
-                // new throw
+                // TODO:new throw
             }
 
             _context.Products.Remove(product);

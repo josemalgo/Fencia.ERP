@@ -30,6 +30,9 @@ namespace Fenicia.Application.UseCases.Products.Add
                 .Where(x => x.Name == request.Category)
                 .FirstOrDefaultAsync();
 
+            if(category == null)
+                return Guid.Empty;
+
             var product = new Product()
             {
                 Id = Guid.NewGuid(),

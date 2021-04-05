@@ -25,7 +25,7 @@ namespace Fenicia.Application.UseCases.OrderItems.Get.GetById
 
             var orderItem = await _context.OrderItems
                 .Where(oi => oi.Id == request.Id)
-                .ProjectTo<GetOrderItemDTO>(_mapper.ConfigurationProvider)
+                .ProjectTo<GetAllOrderItemDTO>(_mapper.ConfigurationProvider)
                 .FirstOrDefaultAsync();
 
             if(orderItem == null)

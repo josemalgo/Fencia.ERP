@@ -13,7 +13,6 @@ namespace Fenicia.Application.UseCases.Users.Register
         public RegisterUserResponse(ValidationResult validationResult, Guid? id = null)
             : base(validationResult, id)
         {
-
         }
     }
 }

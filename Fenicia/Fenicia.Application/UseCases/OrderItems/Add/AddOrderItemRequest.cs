@@ -9,6 +9,7 @@ namespace Fenicia.Application.UseCases.OrderItems.Add
     {
         public double Quantity { get; set; }
         public decimal? Discount { get; set; }
+        //TODO: Calcular total el modelo.
         public decimal Total { get; set; }
 
         public Guid OrderId { get; set; }
