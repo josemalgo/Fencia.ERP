@@ -1,21 +1,28 @@
 ﻿using Fenicia.Application.Common.Interfaces;
-using Fenicia.Application.UseCases.RegisterEmployee;
+using Fenicia.Application.UseCases.Addresses.Update;
+using Fenicia.Application.UseCases.Users.UpdateUser;
+using Fenicia.Domain.Entities;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Fenicia.Application.Common.Validators
+namespace Fenicia.Application.UseCases.Employees.Update
 {
-    class EmployeeValidator : AbstractValidator<RegisterEmployeeRequest>
+    public class UpdateEmployeeValidator : AbstractValidator<UpdateEmployeeRequest>
     {
         private readonly IFeniciaDbContext _context;
 
-        public EmployeeValidator(IFeniciaDbContext context)
+        public UpdateEmployeeValidator(IFeniciaDbContext context)
         {
             _context = context;
+
+            RuleFor(employee => employee.User)
+                .SetValidator(new UpdateUserValidator(_context));
 
             RuleFor(employee => employee.Dni)
                 .NotEmpty().WithMessage("El DNI no puede estar vacío.")
@@ -30,9 +37,6 @@ namespace Fenicia.Application.Common.Validators
 
             RuleFor(employee => employee.Phone)
                 .NotEmpty().WithMessage("El teléfono no puede estar vacío.");
-
-            //RuleFor(employee => employee.Address)
-            //    .SetValidator(new AddressValidator());
 
             RuleFor(employee => employee.Job)
                 .NotEmpty().WithMessage("El teléfono no puede estar vacío.");
@@ -50,3 +54,4 @@ namespace Fenicia.Application.Common.Validators
         }
     }
 }
+

@@ -20,13 +20,14 @@ namespace Fenicia.Application.UseCases.RegisterEmployee
 
         public async Task<Guid> Handle(RegisterEmployeeRequest request)
         {
-            var result = new EmployeeValidator(_context).Validate(request);
+            var result = new RegisterEmployeeValidator(_context).Validate(request);
             if (!result.IsValid)
                 return Guid.Empty;
 
             try
             {
                 _context.BeginTransaction();
+
                 var user = await _context.Users.FindAsync(
                     new RegisterUserInteractor(_context).Handle(request.User).Result.Id);
                 if(user == null)
@@ -55,7 +56,7 @@ namespace Fenicia.Application.UseCases.RegisterEmployee
                 address.Person = employee;
                 employee.Addresses.Add(address);
 
-                await _context.Employees.AddAsync(employee);
+                _context.Employees.Add(employee);
                 await _context.Commit();
 
                 return employee.Id;

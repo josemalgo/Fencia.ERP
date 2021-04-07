@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.ERP.Api\\Fenicia.ERP.Api.csproj": {}
+    "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.ERP.Api\\Fenicia.ERP.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Application\\Fenicia.Application.csproj": {
+    "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Application\\Fenicia.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Application\\Fenicia.Application.csproj",
+        "projectUniqueName": "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Application\\Fenicia.Application.csproj",
         "projectName": "Fenicia.Application",
-        "projectPath": "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Application\\Fenicia.Application.csproj",
-        "packagesPath": "C:\\Users\\JOSE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Application\\obj\\",
+        "projectPath": "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Application\\Fenicia.Application.csproj",
+        "packagesPath": "C:\\Users\\VSPC\\.nuget\\packages\\",
+        "outputPath": "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\JOSE\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\VSPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -28,8 +32,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Domain\\Fenicia.Domain.csproj": {
-                "projectPath": "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Domain\\Fenicia.Domain.csproj"
+              "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Domain\\Fenicia.Domain.csproj": {
+                "projectPath": "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Domain\\Fenicia.Domain.csproj"
               }
             }
           }
@@ -72,29 +76,30 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Domain\\Fenicia.Domain.csproj": {
+    "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Domain\\Fenicia.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Domain\\Fenicia.Domain.csproj",
+        "projectUniqueName": "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Domain\\Fenicia.Domain.csproj",
         "projectName": "Fenicia.Domain",
-        "projectPath": "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Domain\\Fenicia.Domain.csproj",
-        "packagesPath": "C:\\Users\\JOSE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Domain\\obj\\",
+        "projectPath": "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Domain\\Fenicia.Domain.csproj",
+        "packagesPath": "C:\\Users\\VSPC\\.nuget\\packages\\",
+        "outputPath": "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\JOSE\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\VSPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -133,22 +138,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.ERP.Api\\Fenicia.ERP.Api.csproj": {
+    "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.ERP.Api\\Fenicia.ERP.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.ERP.Api\\Fenicia.ERP.Api.csproj",
+        "projectUniqueName": "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.ERP.Api\\Fenicia.ERP.Api.csproj",
         "projectName": "Fenicia.ERP.Api",
-        "projectPath": "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.ERP.Api\\Fenicia.ERP.Api.csproj",
-        "packagesPath": "C:\\Users\\JOSE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.ERP.Api\\obj\\",
+        "projectPath": "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.ERP.Api\\Fenicia.ERP.Api.csproj",
+        "packagesPath": "C:\\Users\\VSPC\\.nuget\\packages\\",
+        "outputPath": "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.ERP.Api\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\JOSE\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\VSPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -161,11 +170,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Application\\Fenicia.Application.csproj": {
-                "projectPath": "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Application\\Fenicia.Application.csproj"
+              "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Application\\Fenicia.Application.csproj": {
+                "projectPath": "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Application\\Fenicia.Application.csproj"
               },
-              "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Infrastructure\\Fenicia.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Infrastructure\\Fenicia.Infrastructure.csproj"
+              "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Infrastructure\\Fenicia.Infrastructure.csproj": {
+                "projectPath": "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Infrastructure\\Fenicia.Infrastructure.csproj"
               }
             }
           }
@@ -209,22 +218,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Infrastructure\\Fenicia.Infrastructure.csproj": {
+    "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Infrastructure\\Fenicia.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Infrastructure\\Fenicia.Infrastructure.csproj",
+        "projectUniqueName": "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Infrastructure\\Fenicia.Infrastructure.csproj",
         "projectName": "Fenicia.Infrastructure",
-        "projectPath": "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Infrastructure\\Fenicia.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\JOSE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Infrastructure\\obj\\",
+        "projectPath": "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Infrastructure\\Fenicia.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\VSPC\\.nuget\\packages\\",
+        "outputPath": "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\JOSE\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\VSPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -237,11 +250,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Application\\Fenicia.Application.csproj": {
-                "projectPath": "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Application\\Fenicia.Application.csproj"
+              "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Application\\Fenicia.Application.csproj": {
+                "projectPath": "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Application\\Fenicia.Application.csproj"
               },
-              "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Domain\\Fenicia.Domain.csproj": {
-                "projectPath": "C:\\Users\\JOSE\\Desktop\\Fenicia\\Fenicia\\Fenicia.Domain\\Fenicia.Domain.csproj"
+              "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Domain\\Fenicia.Domain.csproj": {
+                "projectPath": "D:\\IT_Academy\\Fenicia.ERP\\Fenicia\\Fenicia.Domain\\Fenicia.Domain.csproj"
               }
             }
           }
@@ -276,14 +289,11 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

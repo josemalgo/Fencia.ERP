@@ -36,10 +36,6 @@ namespace Fenicia.Application.UseCases.Orders.Add
                 if (customer == null)
                     return Guid.Empty;
 
-                var employee = await _context.Employees.FindAsync(request.EmployeeId);
-                if (employee == null)
-                    return Guid.Empty;
-
                 var order = new Order()
                 {
                     Id = Guid.NewGuid(),
@@ -53,8 +49,6 @@ namespace Fenicia.Application.UseCases.Orders.Add
                     DeliveryAddress = deliveryAddress,
                     CustomerId = request.CustomerId,
                     Customer = customer,
-                    Employee = employee,
-                    EmployeeId = employee.Id
                 };
 
                 _context.Orders.Add(order);

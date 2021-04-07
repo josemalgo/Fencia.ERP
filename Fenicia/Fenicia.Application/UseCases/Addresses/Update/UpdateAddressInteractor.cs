@@ -20,23 +20,22 @@ namespace Fenicia.Application.UseCases.Addresses.Update
 
         public async Task<Guid> Handle(UpdateAddressRequest request)
         {
-            var address = await _context.Addresses.FindAsync(request.Id);
-            //TODO: Continuar por aquí
-            if(address == null)
-            {
-
-            }
-
-            //var validator = new AddressValidator().Validate(request);
-
-            var validator = new AddressValidator().Validate(new Address());
-
+            var validator = new UpdateAddressValidator().Validate(request);
             if (!validator.IsValid)
-            {
+                return Guid.Empty;
 
-            }
+            var address = await _context.Addresses.FindAsync(request.Id);
+            if (address == null)
+                return Guid.Empty;
 
-            address.Description = request.address.Description;
+            var country = await _context.Countries.FindAsync(request.Country);
+            if (country == null)
+                return Guid.Empty;
+
+            address.Description = request.Description;
+            address.City = request.City;
+            address.Country = country;
+            address.ZipCode = request.ZipCode;
 
             return address.Id;
         }

@@ -21,23 +21,12 @@ namespace Fenicia.Application.UseCases.Addresses.Add
         public async Task<Guid> Handle(AddAddressRequest request)
         {
             var validator = new AddAddressValidator().Validate(request);
-
             if (!validator.IsValid)
-            {
-                throw new NotImplementedException();
-            }
+                return Guid.Empty;
 
-            //var country = await _context.Countries.FindAsync(request.CountryId);
-            //if(country == null)
-            //{
-
-            //}
-
-            var country = new Country()
-            {
-                Id = Guid.NewGuid(),
-                Name = request.Country
-            };
+            var country = await _context.Countries.FindAsync(request.CountryId);
+            if (country == null)
+                return Guid.Empty;
 
             var address = new Address()
             {

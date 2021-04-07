@@ -25,10 +25,10 @@ namespace Fenicia.Application.UseCases.Employees.Get.GetEmployeeById
 
             var employee = await _context.Employees
                 .Where(x => x.Id == request.Id)
-                .ProjectTo<GetEmployeeDTO>(_mapper.ConfigurationProvider)
+                .ProjectTo<GetEmployeeByIdDTO>(_mapper.ConfigurationProvider)
                 .FirstOrDefaultAsync();
 
-            response.employee = employee;
+            response.Employee = employee;
 
             return response;
         }

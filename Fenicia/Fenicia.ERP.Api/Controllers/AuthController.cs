@@ -1,4 +1,5 @@
 ﻿using Fenicia.Application.Common.Interfaces.UseCases.Users;
+using Fenicia.Application.UseCases.Users.Delete;
 using Fenicia.Application.UseCases.Users.Get;
 using Fenicia.Application.UseCases.Users.Login;
 using Fenicia.Application.UseCases.Users.Register;
@@ -21,14 +22,17 @@ namespace Fenicia.ERP.Api.Controllers
         private IRegisterUserInteractor _registerUserInteractor;
         private IUpdateUserInteractor _updateUserInteractor;
         private IGetAllUsersInteractor _getAllUsersInteractor;
+        private IDeleteUserInteractor _deleteUserInteractor;
 
         public AuthController(ILoginUserInteractor loginUserInteractor, IRegisterUserInteractor registerUserInteractor,
-            IUpdateUserInteractor updateUserInteractor, IGetAllUsersInteractor getAllUsersInteractor)
+            IUpdateUserInteractor updateUserInteractor, IGetAllUsersInteractor getAllUsersInteractor,
+            IDeleteUserInteractor deleteUserInteractor)
         {
             _loginUserInteractor = loginUserInteractor;
             _registerUserInteractor = registerUserInteractor;
             _updateUserInteractor = updateUserInteractor;
             _getAllUsersInteractor = getAllUsersInteractor;
+            _deleteUserInteractor = deleteUserInteractor;
         }
 
         // GET: api/<UserController>
@@ -77,8 +81,12 @@ namespace Fenicia.ERP.Api.Controllers
 
         // DELETE api/<UserController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult<Guid>> Delete(Guid id)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(Guid.Empty);
+
+            return await _deleteUserInteractor.Handle(new DeleteUserRequest { Id = id });
         }
     }
 }

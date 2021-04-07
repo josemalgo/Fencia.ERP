@@ -15,7 +15,7 @@ namespace Fenicia.Application.UseCases.Addresses.Add
             RuleFor(a => a.ZipCode)
                 .NotEmpty().WithMessage("La código postal no puede estar vacío.");
 
-            RuleFor(a => a.Country)
+            RuleFor(a => a.CountryId)
                 .NotEmpty().WithMessage("El país no puede estar vacío.");
         }
     }

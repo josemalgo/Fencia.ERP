@@ -10,6 +10,6 @@ namespace Fenicia.Application.UseCases.Addresses.Add
         public string Description { get; set; }
         public int ZipCode { get; set; }
         public string City { get; set; }
-        public string Country { get; set; }
+        public Guid CountryId { get; set; }
     }
 }

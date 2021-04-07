@@ -43,6 +43,7 @@ using Fenicia.Application.UseCases.Products.Get.GetById;
 using Fenicia.Application.UseCases.Products.GetProduct;
 using Fenicia.Application.UseCases.Products.Update;
 using Fenicia.Application.UseCases.RegisterEmployee;
+using Fenicia.Application.UseCases.Users.Delete;
 using Fenicia.Application.UseCases.Users.Get;
 using Fenicia.Application.UseCases.Users.Login;
 using Fenicia.Application.UseCases.Users.Register;
@@ -69,6 +70,7 @@ namespace Fenicia.Application
             services.AddScoped<IRegisterUserInteractor, RegisterUserInteractor>();
             services.AddScoped<IGetAllUsersInteractor, GetAllUsersInteractor>();
             services.AddScoped<IUpdateUserInteractor, UpdateUserInteractor>();
+            services.AddScoped<IDeleteUserInteractor, DeleteUserInteractor>();
 
             //Categories
             services.AddScoped<IAddCategoryInteractor, AddCategoryInteractor>();

@@ -22,3 +22,15 @@ C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Domain\obj\Debug\net5.0\Fenicia.Do
 C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Domain\obj\Debug\net5.0\Fenicia.Domain.dll
 C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Domain\obj\Debug\net5.0\ref\Fenicia.Domain.dll
 C:\Users\JOSE\Desktop\Fenicia\Fenicia\Fenicia.Domain\obj\Debug\net5.0\Fenicia.Domain.pdb
+D:\IT_Academy\Fenicia.ERP\Fenicia\Fenicia.Domain\bin\Debug\net5.0\Fenicia.Domain.deps.json
+D:\IT_Academy\Fenicia.ERP\Fenicia\Fenicia.Domain\bin\Debug\net5.0\Fenicia.Domain.dll
+D:\IT_Academy\Fenicia.ERP\Fenicia\Fenicia.Domain\bin\Debug\net5.0\ref\Fenicia.Domain.dll
+D:\IT_Academy\Fenicia.ERP\Fenicia\Fenicia.Domain\bin\Debug\net5.0\Fenicia.Domain.pdb
+D:\IT_Academy\Fenicia.ERP\Fenicia\Fenicia.Domain\obj\Debug\net5.0\Fenicia.Domain.csprojAssemblyReference.cache
+D:\IT_Academy\Fenicia.ERP\Fenicia\Fenicia.Domain\obj\Debug\net5.0\Fenicia.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\IT_Academy\Fenicia.ERP\Fenicia\Fenicia.Domain\obj\Debug\net5.0\Fenicia.Domain.AssemblyInfoInputs.cache
+D:\IT_Academy\Fenicia.ERP\Fenicia\Fenicia.Domain\obj\Debug\net5.0\Fenicia.Domain.AssemblyInfo.cs
+D:\IT_Academy\Fenicia.ERP\Fenicia\Fenicia.Domain\obj\Debug\net5.0\Fenicia.Domain.csproj.CoreCompileInputs.cache
+D:\IT_Academy\Fenicia.ERP\Fenicia\Fenicia.Domain\obj\Debug\net5.0\Fenicia.Domain.dll
+D:\IT_Academy\Fenicia.ERP\Fenicia\Fenicia.Domain\obj\Debug\net5.0\ref\Fenicia.Domain.dll
+D:\IT_Academy\Fenicia.ERP\Fenicia\Fenicia.Domain\obj\Debug\net5.0\Fenicia.Domain.pdb

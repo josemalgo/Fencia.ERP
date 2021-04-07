@@ -25,10 +25,10 @@ namespace Fenicia.Application.UseCases.Employees.Get.GetAll
             var response = new GetAllEmployeesResponse();
 
             var employees = await _context.Employees
-                .ProjectTo<GetEmployeeDTO>(_mapper.ConfigurationProvider)
+                .ProjectTo<GetAllEmployeesDTO>(_mapper.ConfigurationProvider)
                 .ToListAsync();
 
-            response.employees = employees;
+            response.Employees = employees;
 
             return response;
         }

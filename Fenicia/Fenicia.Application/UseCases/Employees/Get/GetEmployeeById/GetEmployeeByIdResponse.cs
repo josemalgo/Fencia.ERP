@@ -8,6 +8,6 @@ namespace Fenicia.Application.UseCases.Employees.Get.GetEmployeeById
 {
     public class GetEmployeeByIdResponse
     {
-        public GetEmployeeDTO employee { get; set; }
+        public GetEmployeeByIdDTO Employee { get; set; }
     }
 }

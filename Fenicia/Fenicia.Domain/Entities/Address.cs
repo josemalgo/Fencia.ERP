@@ -12,6 +12,7 @@ namespace Fenicia.Domain.Entities
 
         public Guid CountryId { get; set; }
         public Country Country { get; set; }
+        public Guid PersonId { get; set; }
         public Person Person { get; set; }
         public ICollection<Order> Orders { get; set; }
 
