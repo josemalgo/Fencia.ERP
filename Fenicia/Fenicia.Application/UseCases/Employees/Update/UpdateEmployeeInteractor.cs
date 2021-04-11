@@ -4,6 +4,7 @@ using Fenicia.Application.Common.Interfaces.UseCases.Employees;
 using Fenicia.Application.UseCases.Users.UpdateUser;
 using Fenicia.Domain.Entities;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Fenicia.Application.UseCases.Employees.Update
@@ -25,11 +26,12 @@ namespace Fenicia.Application.UseCases.Employees.Update
             if (!validator.IsValid)
                 return Guid.Empty;
 
+            if (_context.Employees.Any(x => x.Dni == request.Dni && x.Id != request.Id))
+                return Guid.Empty;
+
             var employee = await _context.Employees.FindAsync(request.Id);
             if (employee == null)
                 return Guid.Empty;
-
-            
 
             try
             {

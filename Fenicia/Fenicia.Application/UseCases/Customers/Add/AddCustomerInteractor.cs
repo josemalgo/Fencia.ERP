@@ -19,7 +19,7 @@ namespace Fenicia.Application.UseCases.Customers.Add
 
         public async Task<Guid> Handle(AddCustomerRequest request)
         {
-            var validator = new CustomerValidator(_context).Validate(request);
+            var validator = new AddCustomerValidator(_context).Validate(request);
             if (!validator.IsValid)
             {
                 //throw new Exception
@@ -28,7 +28,7 @@ namespace Fenicia.Application.UseCases.Customers.Add
 
             try
             {
-                var addressId = await new AddAddressInteractor(_context).Handle(request.FiscalAddress);
+                var addressId = await new AddAddressInteractor(_context).Handle(request.Address);
                 var address = await _context.Addresses.FindAsync(addressId);
                 if (address == null)
                     return Guid.Empty;
@@ -41,10 +41,11 @@ namespace Fenicia.Application.UseCases.Customers.Add
                     FiscalName = request.FiscalName,
                     Nif = request.Nif,
                     Phone = request.Phone,
-                    FiscalAddress = address,
-                    FiscalAddressId = address.Id
                 };
 
+                address.CustomerId = customer.Id;
+                address.Customer = customer;
+                customer.Addresses.Add(address);
 
                 _context.Customers.Add(customer);
                 await _context.SaveChangesAsync();

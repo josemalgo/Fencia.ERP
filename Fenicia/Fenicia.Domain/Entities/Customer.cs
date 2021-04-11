@@ -11,14 +11,14 @@ namespace Fenicia.Domain.Entities
         public string Email { get; set; }
         public int Phone { get; set; }
 
-        public Guid FiscalAddressId { get; set; }
-        public Address FiscalAddress { get; set; }
+        public List<Address> Addresses { get; set; }
 
         public List<Order> Orders { get; set; }
 
         public Customer()
         {
             Orders = new List<Order>();
+            Addresses = new List<Address>();
         }
     }
 }

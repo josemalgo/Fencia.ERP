@@ -19,12 +19,15 @@ namespace Fenicia.Application.UseCases.Users.UpdateUser
 
         public async Task<Guid> Handle(UpdateUserRequest request)
         {
-            var user = await _context.Users.FindAsync(request.Id);
-            if (user == null)
-                return Guid.Empty;
-
             var validator = new UpdateUserValidator(_context).Validate(request);
             if (!validator.IsValid)
+                return Guid.Empty;
+
+            if (_context.Users.Any(x => x.Email== request.Email && x.Id != request.Id))
+                return Guid.Empty;
+
+            var user = await _context.Users.FindAsync(request.Id);
+            if (user == null)
                 return Guid.Empty;
 
             user.Email = request.Email;

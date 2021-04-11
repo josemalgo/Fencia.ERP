@@ -7,7 +7,7 @@ namespace Fenicia.Domain.Entities
 {
     public class Order : Entity
     {
-        public decimal TotalPrice { get; set; }
+        private decimal _totalPrice;
         public int NumberItems { get; set; }
         public decimal Iva { get; set; }
         public PriorityLevel Priority { get; set; }
@@ -31,6 +31,23 @@ namespace Fenicia.Domain.Entities
         public Order()
         {
             OrderItems = new List<OrderItem>();
+        }
+
+        public decimal GetTotalPrice()
+        {
+            return GetSubTotalPrice() * ((Iva / 100) + 1);
+        }
+
+        public decimal GetSubTotalPrice()
+        {
+            decimal subTotal = 0;
+            
+            foreach(var orderItem in OrderItems)
+            {
+                subTotal += orderItem.Total;
+            }
+
+            return subTotal;
         }
     }
 }

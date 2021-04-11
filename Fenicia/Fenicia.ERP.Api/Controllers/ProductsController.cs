@@ -46,14 +46,14 @@ namespace Fenicia.ERP.Api.Controllers
 
         // GET api/<ValuesController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<GetProductByIdResponse>> Get(GetProductByIdRequest request)
+        public async Task<ActionResult<GetProductByIdResponse>> Get(Guid id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            return await _getProductByIdInteractor.Handle(request);
+            return await _getProductByIdInteractor.Handle(new GetProductByIdRequest { Id = id });
         }
 
         // POST api/<ValuesController>
@@ -90,14 +90,14 @@ namespace Fenicia.ERP.Api.Controllers
 
         // DELETE api/<ValuesController>/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Guid>> Delete(DeleteProductRequest request)
+        public async Task<ActionResult<Guid>> Delete(Guid id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var result = await _deleteProductInteractor.Handle(request);
+            var result = await _deleteProductInteractor.Handle(new DeleteProductRequest { Id = id });
             if (result == Guid.Empty)
                 return NoContent();
 

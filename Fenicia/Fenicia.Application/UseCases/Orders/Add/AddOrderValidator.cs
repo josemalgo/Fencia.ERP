@@ -14,11 +14,9 @@ namespace Fenicia.Application.UseCases.Orders.Add
         public AddOrderValidator()
         {
             RuleFor(order => order.Status)
-                .NotEmpty().WithMessage("El estado no puede estar vacío.")
                 .MustAsync(EnumIsValid<Status>).WithMessage("El estado no existe.");
 
-            RuleFor(order => order.Status)
-                .NotEmpty().WithMessage("El nivel de prioridad no puede estar vacío.")
+            RuleFor(order => order.Priority)
                 .MustAsync(EnumIsValid<PriorityLevel>).WithMessage("El nivel de prioridad no existe.");
         }
 

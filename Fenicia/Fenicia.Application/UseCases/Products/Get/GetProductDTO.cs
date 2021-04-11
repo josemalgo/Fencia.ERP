@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Fenicia.Application.Common.Mappings;
+using Fenicia.Application.UseCases.Categories.Get;
 using Fenicia.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,12 @@ namespace Fenicia.Application.UseCases.Products.Get
         public decimal Iva { get; set; }
         public string Description { get; set; }
         public int Stock { get; set; }
-        public string NameCategory { get; set; }
+        public GetCategoryDTO Category { get; set; }
 
-        public void Mapping(Profile profile)
-        {
-            profile.CreateMap<Product, GetProductDTO>()
-                .ForMember(d => d.NameCategory, opt => opt.MapFrom(s => s.Category.Name));
-        }
+        //public void Mapping(Profile profile)
+        //{
+        //    profile.CreateMap<Product, GetProductDTO>()
+        //        .ForMember(d => d.NameCategory, opt => opt.MapFrom(s => s.Category.Name));
+        //}
     }
 }

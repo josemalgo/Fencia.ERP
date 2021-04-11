@@ -46,14 +46,14 @@ namespace Fenicia.ERP.Api.Controllers
 
         // GET api/<CategoriesController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<GetCategoryByIdResponse>> Get(GetCategoryByIdRequest request)
+        public async Task<ActionResult<GetCategoryByIdResponse>> Get(Guid id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var result = await _getCategoryByIdInteractor.Handle(request);
+            var result = await _getCategoryByIdInteractor.Handle(new GetCategoryByIdRequest { Id = id });
 
             return Ok(result);
         }
@@ -92,14 +92,14 @@ namespace Fenicia.ERP.Api.Controllers
 
         // DELETE api/<CategoriesController>/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Guid>> Delete(DeleteCategoryRequest request)
+        public async Task<ActionResult<Guid>> Delete(Guid id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var result = await _deleteCategoryInteractor.Handle(request);
+            var result = await _deleteCategoryInteractor.Handle(new DeleteCategoryRequest { Id = id });
             if (result == Guid.Empty)
                 return NoContent();
 

@@ -22,7 +22,7 @@ namespace Fenicia.Application.UseCases.OrderItems.Add
         {
             var validator = new AddOrderItemValidator().Validate(request);
 
-            if (validator.IsValid)
+            if (!validator.IsValid)
                 return Guid.Empty;
 
             var order = await _context.Orders.FindAsync(request.OrderId);

@@ -12,11 +12,11 @@ using System.Threading.Tasks;
 
 namespace Fenicia.Application.Common.Validators
 {
-    public class CustomerValidator : AbstractValidator<AddCustomerRequest>
+    public class AddCustomerValidator : AbstractValidator<AddCustomerRequest>
     {
         private readonly IFeniciaDbContext _context;
 
-        public CustomerValidator(IFeniciaDbContext context)
+        public AddCustomerValidator(IFeniciaDbContext context)
         {
             _context = context;
 

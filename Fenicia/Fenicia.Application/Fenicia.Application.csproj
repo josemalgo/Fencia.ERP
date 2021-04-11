@@ -7,6 +7,7 @@
   <ItemGroup>
     <Folder Include="Common\Security\" />
     <Folder Include="Common\Exceptions\" />
+    <Folder Include="Common\Validators\" />
   </ItemGroup>
 
   <ItemGroup>

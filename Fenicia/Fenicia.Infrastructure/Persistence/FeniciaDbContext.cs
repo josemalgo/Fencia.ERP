@@ -38,6 +38,10 @@ namespace Fenicia.Infrastructure.Persistence
                 .HasOne(e => e.Person)
                 .WithMany(a => a.Addresses)
                 .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Address>()
+                .HasOne(e => e.Customer)
+                .WithMany(a => a.Addresses)
+                .OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder.Entity<Country>().Property(c => c.Name).IsRequired();
             modelBuilder.Entity<Country>().HasIndex(c => c.Name).IsUnique();

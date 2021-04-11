@@ -1,4 +1,5 @@
 ﻿using Fenicia.Application.Common.Mappings;
+using Fenicia.Application.UseCases.Addresses.Get;
 using Fenicia.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace Fenicia.Application.UseCases.Customers.Get
         public string Nif { get; set; }
         public int Phone { get; set; }
 
-        public Address FiscalAddress { get; set; }
+        public List<GetAddressDTO> Addresses { get; set; }
 
     }
 }

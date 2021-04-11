@@ -46,14 +46,14 @@ namespace Fenicia.ERP.Api.Controllers
 
         // GET api/<CustomersController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<GetCustomerByIdResponse>> Get(int id)
+        public async Task<ActionResult<GetCustomerByIdResponse>> Get(Guid id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            return await _getCustomerByIdInteractor.Handle(new GetCustomerByIdRequest());
+            return await _getCustomerByIdInteractor.Handle(new GetCustomerByIdRequest { Id = id });
         }
 
         // POST api/<CustomersController>
@@ -74,7 +74,7 @@ namespace Fenicia.ERP.Api.Controllers
 
         // PUT api/<CustomersController>/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<Guid>> Put(int id, [FromBody] UpdateCustomerRequest request)
+        public async Task<ActionResult<Guid>> Put(Guid id, [FromBody] UpdateCustomerRequest request)
         {
             if (!ModelState.IsValid)
             {
@@ -90,14 +90,14 @@ namespace Fenicia.ERP.Api.Controllers
 
         // DELETE api/<CustomersController>/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Guid>> Delete(DeleteCustomerRequest request)
+        public async Task<ActionResult<Guid>> Delete(Guid id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var result = await _deleteCustomerInteractor.Handle(request);
+            var result = await _deleteCustomerInteractor.Handle(new DeleteCustomerRequest { Id = id });
             if (result == Guid.Empty)
                 return NoContent();
 

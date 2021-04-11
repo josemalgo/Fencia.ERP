@@ -26,8 +26,7 @@ namespace Fenicia.Application.UseCases.Employees.Update
 
             RuleFor(employee => employee.Dni)
                 .NotEmpty().WithMessage("El DNI no puede estar vacío.")
-                .MaximumLength(9).WithMessage("El DNI introducido no es correcto.")
-                .MustAsync(BeUniqueDni).WithMessage("El DNI introducido ya existe.");
+                .MaximumLength(9).WithMessage("El DNI introducido no es correcto.");
 
             RuleFor(employee => employee.Name)
                 .NotEmpty().WithMessage("El nombre no puede estar vacío.");
@@ -43,14 +42,6 @@ namespace Fenicia.Application.UseCases.Employees.Update
 
             RuleFor(employee => employee.Salary)
                 .NotEmpty().WithMessage("El teléfono no puede estar vacío.");
-        }
-
-        public async Task<bool> BeUniqueDni(string dni, CancellationToken cancellationToken)
-        {
-            if (_context.People.Count() == 0)
-                return await _context.People.AllAsync(p => p.Dni == dni);
-
-            return !await _context.People.AllAsync(p => p.Dni == dni);
         }
     }
 }

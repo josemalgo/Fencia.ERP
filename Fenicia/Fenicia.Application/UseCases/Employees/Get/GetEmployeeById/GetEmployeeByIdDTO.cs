@@ -13,12 +13,15 @@ namespace Fenicia.Application.UseCases.Employees.Get.GetEmployeeById
     public class GetEmployeeByIdDTO: IMapFrom<Employee>
     {
         public Guid Id { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
         public string Dni { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public string Email { get; set; }
         public int Phone { get; set; }
         public string Job { get; set; }
+        public decimal salary { get; set; }
+        public Guid UserId { get; set; }
         public List<GetAddressDTO> Addresses { get; set; }
         //public List<Order> OrdersFinished { get; set; }
         //public List<Order> OrdersInProcess { get; set; }//TODO: Agragar en el get las list
@@ -27,6 +30,7 @@ namespace Fenicia.Application.UseCases.Employees.Get.GetEmployeeById
         {
             profile.CreateMap<Employee, GetEmployeeByIdDTO>()
                 .ForMember(d => d.Email, opt => opt.MapFrom(s => s.User.Email))
+                .ForMember(d => d.Password, opt => opt.MapFrom(s => s.User.Password))
                 .ForMember(d => d.Addresses, opt => opt.MapFrom(s => s.Addresses));
         }
     }

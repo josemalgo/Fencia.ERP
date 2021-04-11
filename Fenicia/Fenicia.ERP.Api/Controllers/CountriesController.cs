@@ -4,6 +4,7 @@ using Fenicia.Application.UseCases.Countries.Delete;
 using Fenicia.Application.UseCases.Countries.Get.GetAll;
 using Fenicia.Application.UseCases.Countries.Get.GetById;
 using Fenicia.Application.UseCases.Countries.Update;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ using System.Threading.Tasks;
 namespace Fenicia.ERP.Api.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("FeniciaPolicy")]
     [ApiController]
     public class CountriesController : ControllerBase
     {

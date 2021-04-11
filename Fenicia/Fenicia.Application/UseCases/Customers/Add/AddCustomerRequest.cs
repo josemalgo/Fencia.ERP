@@ -12,6 +12,6 @@ namespace Fenicia.Application.UseCases.Customers.Add
         public string Nif { get; set; }
         public int Phone { get; set; }
 
-        public AddAddressRequest FiscalAddress { get; set; }
+        public AddAddressRequest Address { get; set; }
     }
 }
