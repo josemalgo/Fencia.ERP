@@ -4,6 +4,7 @@ using Fenicia.Application.UseCases.OrderItems.Get;
 using Fenicia.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Fenicia.Application.UseCases.Orders.Get.GetById
 {
@@ -12,11 +13,12 @@ namespace Fenicia.Application.UseCases.Orders.Get.GetById
         public Guid Id { get; set; }
         public decimal SubTotalPrice { get; set; }
         public decimal Iva { get; set; }
-        //DeliveryPrice??
         public decimal TotalPrice { get; set; }
-        public int NumberItems { get; set; }
         public string Priority { get; set; }
         public string Status { get; set; }
+        public DateTime EntryDate { get; set; }
+        public DateTime AssignamentDate { get; set; }
+        public DateTime TerminationDate { get; set; }
         public string DeliveryAddress { get; set; }
         public string DeliveryCity { get; set; }
         public string DeliveryZipCode { get; set; }
@@ -34,11 +36,6 @@ namespace Fenicia.Application.UseCases.Orders.Get.GetById
 
         public List<GetAllOrderItemDTO> OrderItems { get; set; }
 
-        public GetOrderByIdDTO()
-        {
-            OrderItems = new List<GetAllOrderItemDTO>();
-        }
-
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Order, GetOrderByIdDTO>()
@@ -47,10 +44,12 @@ namespace Fenicia.Application.UseCases.Orders.Get.GetById
                 .ForMember(d => d.DeliveryCountry, opt => opt.MapFrom(s => s.DeliveryAddress.Country))
                 .ForMember(d => d.DeliveryZipCode, opt => opt.MapFrom(s => s.DeliveryAddress.ZipCode))
                 .ForMember(d => d.CustomerTradeName, opt => opt.MapFrom(s => s.Customer.TradeName))
-                //.ForMember(d => d.CustomerAddress, opt => opt.MapFrom(s => s.Customer.FiscalAddress.Description))
-                //.ForMember(d => d.CustomerCity, opt => opt.MapFrom(s => s.Customer.FiscalAddress.City))
-                //.ForMember(d => d.CustomerCountry, opt => opt.MapFrom(s => s.Customer.FiscalAddress.Country))
-                //.ForMember(d => d.CustomerZipCode, opt => opt.MapFrom(s => s.Customer.FiscalAddress.ZipCode))
+                .ForMember(d => d.CustomerAddress, opt => opt.MapFrom(s => s.Customer.Addresses.First().Description))
+                .ForMember(d => d.CustomerCity, opt => opt.MapFrom(s => s.Customer.Addresses.First().City))
+                .ForMember(d => d.CustomerCountry, opt => opt.MapFrom(s => s.Customer.Addresses.First().Country))
+                .ForMember(d => d.CustomerZipCode, opt => opt.MapFrom(s => s.Customer.Addresses.First().ZipCode))
+                .ForMember(d => d.SubTotalPrice, opt => opt.MapFrom(s => s.GetSubTotalPrice()))
+                .ForMember(d => d.TotalPrice, opt => opt.MapFrom(s => s.GetTotalPrice()))
                 .ForMember(d => d.CustomerPhone, opt => opt.MapFrom(s => s.Customer.Phone))
                 .ForMember(d => d.CustomerEmail, opt => opt.MapFrom(s => s.Customer.Email))
                 .ForMember(d => d.OrderItems, opt => opt.MapFrom(s => s.OrderItems));

@@ -7,8 +7,6 @@ namespace Fenicia.Domain.Entities
 {
     public class Order : Entity
     {
-        private decimal _totalPrice;
-        public int NumberItems { get; set; }
         public decimal Iva { get; set; }
         public PriorityLevel Priority { get; set; }
         public Status Status { get; set; }
@@ -20,8 +18,7 @@ namespace Fenicia.Domain.Entities
         public Address DeliveryAddress { get; set; }
 
         public Guid? EmployeeId { get; set; }
-        public Employee? Employee { get; set; }
-        //TODO: permitir valores nulos en employee - migration database
+        public Employee Employee { get; set; }
 
         public Guid CustomerId { get; set; }
         public Customer Customer { get; set; }
@@ -44,10 +41,15 @@ namespace Fenicia.Domain.Entities
             
             foreach(var orderItem in OrderItems)
             {
-                subTotal += orderItem.Total;
+                subTotal += orderItem.Amount();
             }
 
             return subTotal;
+        }
+
+        public int GetNumberItems()
+        {
+            return this.OrderItems.Count;
         }
     }
 }

@@ -14,14 +14,14 @@ namespace Fenicia.Application.UseCases.OrderItems.Get
         public string ProductDescription { get; set; }
         public double Quantity { get; set; }
         public decimal Discount { get; set; }
-        public decimal Total { get; set; }
-        //public decimal Amount { get; set; }
+        public decimal Amount { get; set; }
 
         public void Mapping(Profile profile)
         {
             profile.CreateMap<OrderItem, GetAllOrderItemDTO>()
                 .ForMember(d => d.ProductName, opt => opt.MapFrom(s => s.Product.Name))
-                .ForMember(d => d.ProductDescription, opt => opt.MapFrom(s => s.Product.Description));
+                .ForMember(d => d.ProductDescription, opt => opt.MapFrom(s => s.Product.Description))
+                .ForMember(d => d.Amount, opt => opt.MapFrom(s => s.Amount()));
         }
     }
 }

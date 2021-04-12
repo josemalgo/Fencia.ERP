@@ -9,14 +9,11 @@ namespace Fenicia.Application.UseCases.Orders.Add
 {
     public class AddOrderRequest : IRequestInteractor<Guid>
     {
-        public decimal TotalPrice { get; set; }
-        public int NumberItems { get; set; }
         public decimal Iva { get; set; }
         public int Priority { get; set; }
         public int Status { get; set; }
-
+        public Guid EmployeeId { get; set; }
         public Guid DeliveryAddressId { get; set; }
-
         public Guid CustomerId { get; set; }
 
         public List<AddOrderItemRequest> OrderItems { get; set; }

@@ -40,7 +40,6 @@ namespace Fenicia.Application.UseCases.Products.Add
                 Price = request.Price,
                 Stock = request.Stock,
                 Description = request.Description,
-                Iva = request.Iva,
                 CategoryId = category.Id,
                 Category = category
             };

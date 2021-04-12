@@ -45,9 +45,9 @@ namespace Fenicia.ERP.Api.Controllers
 
         // GET api/<OrdersController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<GetOrderByIdResponse>> Get(GetOrderByIdRequest request)
+        public async Task<ActionResult<GetOrderByIdResponse>> Get(Guid id)
         {
-            return await _getOrderByIdInteractor.Handle(request);
+            return await _getOrderByIdInteractor.Handle(new GetOrderByIdRequest { Id = id });
         }
 
         // POST api/<OrdersController>

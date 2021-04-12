@@ -251,11 +251,9 @@ namespace Fenicia.Infrastructure.Persistence
             modelBuilder.Entity<Employee>().Property(e => e.Job).IsRequired().HasMaxLength(80);
             modelBuilder.Entity<Employee>().Property(e => e.Salary).HasColumnType("decimal(8,2)").IsRequired();
 
-            modelBuilder.Entity<Order>().Property(e => e.NumberItems).IsRequired();
             modelBuilder.Entity<Order>().Property(e => e.Priority).IsRequired();
             modelBuilder.Entity<Order>().Property(e => e.Status).IsRequired();
             modelBuilder.Entity<Order>().Property(e => e.Iva).HasColumnType("decimal(8,2)").IsRequired();
-            modelBuilder.Entity<Order>().Property(e => e.TotalPrice).HasColumnType("decimal(8,2)").IsRequired();
             modelBuilder.Entity<Order>().Property(e => e.EntryDate).IsRequired();
             modelBuilder.Entity<Order>().Property(e => e.AssignamentDate).IsRequired();
             modelBuilder.Entity<Order>().Property(e => e.TerminationDate).IsRequired();
@@ -281,7 +279,6 @@ namespace Fenicia.Infrastructure.Persistence
             modelBuilder.Entity<Product>().Property(p => p.Description).HasColumnType("text").IsRequired();
             modelBuilder.Entity<Product>().Property(p => p.Stock).IsRequired();
             modelBuilder.Entity<Product>().Property(p => p.Price).HasColumnType("decimal(8,2)").IsRequired();
-            modelBuilder.Entity<Product>().Property(p => p.Iva).HasColumnType("decimal(8,2)").IsRequired();
 
             modelBuilder.Entity<User>().Property(u => u.Email).IsRequired();
             modelBuilder.Entity<User>().Property(u => u.Password).IsRequired();

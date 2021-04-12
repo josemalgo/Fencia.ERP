@@ -39,8 +39,6 @@ namespace Fenicia.Application.UseCases.Orders.Add
                 var order = new Order()
                 {
                     Id = Guid.NewGuid(),
-                    TotalPrice = request.TotalPrice,
-                    NumberItems = request.NumberItems,
                     Iva = request.Iva,
                     Priority = (PriorityLevel)request.Priority,
                     Status = (Status)request.Status,

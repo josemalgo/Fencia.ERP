@@ -29,7 +29,6 @@ namespace Fenicia.Application.UseCases.Products.Update
                 return Guid.Empty;
 
             product.Name = request.Name;
-            product.Iva = request.Iva;
             product.Price = request.Price;
             product.Stock = request.Stock;
             product.Description = request.Description;

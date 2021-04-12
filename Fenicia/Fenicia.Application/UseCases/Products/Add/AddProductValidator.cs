@@ -19,9 +19,6 @@ namespace Fenicia.Application.UseCases.Products.Add
             RuleFor(product => product.Price)
                 .NotEmpty().WithMessage("El precio del producto no puede estar vacío");
 
-            RuleFor(product => product.Iva)
-                .NotEmpty().WithMessage("El IVA del producto no puede estar vacío");
-
             RuleFor(product => product.Stock)
                 .NotEmpty().WithMessage("El stock del producto no puede estar vacío");
 

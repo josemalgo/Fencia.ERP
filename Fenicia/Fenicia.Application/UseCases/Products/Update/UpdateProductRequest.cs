@@ -11,7 +11,6 @@ namespace Fenicia.Application.UseCases.Products.Update
         public Guid Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public decimal Iva { get; set; }
         public string Description { get; set; }
         public int Stock { get; set; }
 

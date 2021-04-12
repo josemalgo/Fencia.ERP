@@ -8,7 +8,6 @@ namespace Fenicia.Domain.Entities
     {
         public double Quantity { get; set; }
         public decimal Discount { get; set; }
-        public decimal Total { get; set; }
 
         public Guid OrderId { get; set; }
         public Order Order { get; set; }
@@ -16,6 +15,14 @@ namespace Fenicia.Domain.Entities
         public Guid ProductId { get; set; }
         public Product Product { get; set; }
 
+        public decimal Amount()
+        {
+            var price = this.Product.Price * (decimal)Quantity;
 
+            if (this.Discount == 0)
+                return price;
+
+            return price - (price * (this.Discount / 100));
+        }
     }
 }
