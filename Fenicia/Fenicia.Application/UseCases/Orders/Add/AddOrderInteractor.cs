@@ -26,6 +26,8 @@ namespace Fenicia.Application.UseCases.Orders.Add
             if (!validator.IsValid)
                 return Guid.Empty;
 
+            //TODO:Comprobar si el empleado tiene datos
+
             try
             {
                 var deliveryAddress = await _context.Addresses.FindAsync(request.DeliveryAddressId);

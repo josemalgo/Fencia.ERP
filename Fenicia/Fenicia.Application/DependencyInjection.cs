@@ -5,7 +5,9 @@ using Fenicia.Application.Common.Interfaces.UseCases.Customer;
 using Fenicia.Application.Common.Interfaces.UseCases.Employees;
 using Fenicia.Application.Common.Interfaces.UseCases.OrderItems;
 using Fenicia.Application.Common.Interfaces.UseCases.Orders;
+using Fenicia.Application.Common.Interfaces.UseCases.Priorities;
 using Fenicia.Application.Common.Interfaces.UseCases.Products;
+using Fenicia.Application.Common.Interfaces.UseCases.StatusOrder;
 using Fenicia.Application.Common.Interfaces.UseCases.Users;
 using Fenicia.Application.UseCases.Addresses.Add;
 using Fenicia.Application.UseCases.Addresses.Delete;
@@ -37,12 +39,14 @@ using Fenicia.Application.UseCases.Orders.Delete;
 using Fenicia.Application.UseCases.Orders.Get.GetAll;
 using Fenicia.Application.UseCases.Orders.Get.GetById;
 using Fenicia.Application.UseCases.Orders.Update;
+using Fenicia.Application.UseCases.PriorityLevels.Get;
 using Fenicia.Application.UseCases.Products.Add;
 using Fenicia.Application.UseCases.Products.Delete;
 using Fenicia.Application.UseCases.Products.Get.GetById;
 using Fenicia.Application.UseCases.Products.GetProduct;
 using Fenicia.Application.UseCases.Products.Update;
 using Fenicia.Application.UseCases.RegisterEmployee;
+using Fenicia.Application.UseCases.StatusOrder.Get;
 using Fenicia.Application.UseCases.Users.Delete;
 using Fenicia.Application.UseCases.Users.Get;
 using Fenicia.Application.UseCases.Users.Login;
@@ -116,6 +120,12 @@ namespace Fenicia.Application
 
             //OrderItems
             services.AddScoped<IGetAllOrderItemInteractor, GetAllOrderItemInteractor>();
+
+            //Status
+            services.AddScoped<IGetAllStatusInteractor, GetAllStatusInteractor>();
+
+            //PriorityLevels
+            services.AddScoped<IGetAllPrioritiesInteractor, GetAllPrioritiesInteractor>();
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());

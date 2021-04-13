@@ -35,7 +35,6 @@ namespace Fenicia.Application.UseCases.OrderItems.Add
             {
                 Id = Guid.NewGuid(),
                 Quantity = request.Quantity,
-                Amount= request.Amount,
                 OrderId = request.OrderId,
                 Order = order,
                 ProductId = request.ProductId,
