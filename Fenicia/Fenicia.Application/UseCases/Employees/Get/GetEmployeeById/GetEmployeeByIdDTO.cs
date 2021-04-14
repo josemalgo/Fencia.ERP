@@ -21,6 +21,7 @@ namespace Fenicia.Application.UseCases.Employees.Get.GetEmployeeById
         public int Phone { get; set; }
         public string Job { get; set; }
         public decimal salary { get; set; }
+        public bool isAdmin { get; set; }
         public Guid UserId { get; set; }
         public List<GetAddressDTO> Addresses { get; set; }
         //public List<Order> OrdersFinished { get; set; }

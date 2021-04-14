@@ -26,10 +26,15 @@ namespace Fenicia.Application.UseCases.Orders.Add
             if (!validator.IsValid)
                 return Guid.Empty;
 
-            //TODO:Comprobar si el empleado tiene datos
-
             try
             {
+                if (request.EmployeeId != Guid.Empty)
+                {
+                    var employee = await _context.Employees.FindAsync(request.EmployeeId);
+                    if (employee == null)
+                        return Guid.Empty;
+                }
+
                 var deliveryAddress = await _context.Addresses.FindAsync(request.DeliveryAddressId);
                 if (deliveryAddress == null)
                     return Guid.Empty;
@@ -50,12 +55,11 @@ namespace Fenicia.Application.UseCases.Orders.Add
                     CustomerId = request.CustomerId,
                     Customer = customer,
                 };
-
+                
                 _context.Orders.Add(order);
 
                 if (FillOrderItemsList(order, request.OrderItems).Result)
                 {
-                    
                     await _context.SaveChangesAsync();
                     return order.Id;
                 }
