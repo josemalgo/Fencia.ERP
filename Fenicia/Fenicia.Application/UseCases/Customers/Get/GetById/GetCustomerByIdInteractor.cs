@@ -28,8 +28,11 @@ namespace Fenicia.Application.UseCases.Customers.Get.GetById
             var response = new GetCustomerByIdResponse();
 
             var customer = await _context.Customers
+                .Include(x => x.Orders)
+                .ThenInclude(x => x.OrderItems)
+                .ThenInclude(x => x.Product)
                 .Where(c => c.Id == request.Id)
-                .ProjectTo<GetCustomerDTO>(_mapper.ConfigurationProvider)
+                .ProjectTo<GetCustomerByIdDTO>(_mapper.ConfigurationProvider)
                 .FirstOrDefaultAsync();
 
             if (customer == null)
@@ -37,7 +40,7 @@ namespace Fenicia.Application.UseCases.Customers.Get.GetById
 
             }
 
-            response.customer = customer;
+            response.Customer = customer;
 
             return response;
         }

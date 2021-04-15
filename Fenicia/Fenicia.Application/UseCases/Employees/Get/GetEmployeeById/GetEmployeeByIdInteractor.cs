@@ -24,6 +24,9 @@ namespace Fenicia.Application.UseCases.Employees.Get.GetEmployeeById
             var response = new GetEmployeeByIdResponse();
 
             var employee = await _context.Employees
+                .Include(x => x.Orders)
+                .ThenInclude(x => x.OrderItems)
+                .ThenInclude(x => x.Product)
                 .Where(x => x.Id == request.Id)
                 .ProjectTo<GetEmployeeByIdDTO>(_mapper.ConfigurationProvider)
                 .FirstOrDefaultAsync();

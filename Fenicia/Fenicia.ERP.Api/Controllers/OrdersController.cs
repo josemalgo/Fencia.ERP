@@ -88,15 +88,15 @@ namespace Fenicia.ERP.Api.Controllers
 
         // DELETE api/<OrdersController>/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Guid>> Delete(DeleteOrderRequest request)
+        public async Task<ActionResult<Guid>> Delete(Guid id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var id = await _deleteOrderInteractor.Handle(request);
-            if (id == Guid.Empty)
+            var result = await _deleteOrderInteractor.Handle(new DeleteOrderRequest { Id = id });
+            if (result == Guid.Empty)
             {
                 return NoContent();
             }

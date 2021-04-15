@@ -1,12 +1,8 @@
 using Fenicia.Application;
-using Fenicia.Application.Common.Interfaces;
-using Fenicia.Application.Common.Interfaces.UseCases;
-using Fenicia.Application.UseCases.RegisterEmployee;
 using Fenicia.ERP.Api.Extensions;
-using Fenicia.Infrastructure.Persistence;
+using Fenicia.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,7 +22,7 @@ namespace Fenicia.ERP.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddApplication();
-            services.AddScoped<IFeniciaDbContext, FeniciaDbContext>();
+            services.AddInfrastructure(Configuration);
 
             services.ConfigureCors();
             services.ConfigureDbContext(Configuration);

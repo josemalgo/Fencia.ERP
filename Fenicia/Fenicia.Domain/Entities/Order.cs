@@ -47,9 +47,16 @@ namespace Fenicia.Domain.Entities
             return subTotal;
         }
 
-        public int GetNumberItems()
+        public double GetNumberItems()
         {
-            return this.OrderItems.Count;
+            double items = 0;
+
+            foreach(var value in OrderItems)
+            {
+                items += value.Quantity;
+            }
+
+            return items;
         }
     }
 }

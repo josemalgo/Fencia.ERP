@@ -37,13 +37,16 @@ namespace Fenicia.Application.UseCases.OrderItems.Add
                 Quantity = request.Quantity,
                 OrderId = request.OrderId,
                 Order = order,
+                Discount = request.Discount,
                 ProductId = request.ProductId,
                 Product = product
             };
 
+            product.OrderItems.Add(orderItem);
+
             try
             {
-                await _context.OrderItems.AddAsync(orderItem);
+                _context.OrderItems.Add(orderItem);
                 await _context.SaveChangesAsync();
             }
             catch(Exception e)

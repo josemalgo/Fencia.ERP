@@ -20,7 +20,7 @@ namespace Fenicia.Application.UseCases.Addresses.Update
             RuleFor(a => a.City)
                 .NotEmpty().WithMessage("La ciudad no puede estar vacía.");
 
-            RuleFor(a => a.Country)
+            RuleFor(a => a.CountryId)
                 .NotEmpty().WithMessage("El país no puede estar vacío.");
         }
     }

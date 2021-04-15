@@ -1,6 +1,7 @@
 ﻿using Fenicia.Application.Common.Interfaces.UseCases.Addresses;
 using Fenicia.Application.UseCases.Addresses.Get.GetAll;
 using Fenicia.Application.UseCases.Addresses.Get.GetById;
+using Fenicia.Application.UseCases.Addresses.Update;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -55,8 +56,18 @@ namespace Fenicia.ERP.Api.Controllers
 
         // PUT api/<AddressesController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<ActionResult<Guid>> Put(Guid id, [FromBody] UpdateAddressRequest request)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var result = await _updateAddressInteractor.Handle(request);
+            if (result == Guid.Empty)
+                return NoContent();
+
+            return result;
         }
 
         // DELETE api/<AddressesController>/5

@@ -29,8 +29,14 @@ namespace Fenicia.Application.UseCases.Orders.Get.GetById
             try
             {
                 var order = await _context.Orders
-                .ProjectTo<GetOrderByIdDTO>(_mapper.ConfigurationProvider)
-                .FirstOrDefaultAsync();
+                    .Include(x => x.DeliveryAddress)
+                    .Include(x => x.Employee)
+                    .Include(x => x.Customer)
+                    .Include(x => x.OrderItems)
+                    .ThenInclude(c => c.Product)
+                    .Where(oi => oi.Id == request.Id)
+                    .ProjectTo<GetOrderByIdDTO>(_mapper.ConfigurationProvider)
+                    .FirstOrDefaultAsync();
 
                 response.Order = order;
             }

@@ -27,6 +27,8 @@ namespace Fenicia.Application.UseCases.Orders.Get.GetAll
             var response = new GetAllOrderResponse();
 
             var orders = await _context.Orders
+                .Include(x => x.OrderItems)
+                .ThenInclude(x => x.Product)
                 .ProjectTo<GetAllOrdersDTO>(_mapper.ConfigurationProvider)
                 .ToListAsync();
 

@@ -8,9 +8,5 @@ namespace Fenicia.Application.UseCases.Orders.Get.GetAll
     {
         public List<GetAllOrdersDTO> Orders { get; set; }
 
-        public GetAllOrderResponse()
-        {
-            Orders = new List<GetAllOrdersDTO>();
-        }
     }
 }

@@ -6,6 +6,6 @@ namespace Fenicia.Application.UseCases.Customers.Get.GetById
 {
     public class GetCustomerByIdResponse
     {
-        public GetCustomerDTO customer { get; set; }
+        public GetCustomerByIdDTO Customer { get; set; }
     }
 }

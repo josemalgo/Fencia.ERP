@@ -28,15 +28,13 @@ namespace Fenicia.Application.UseCases.Orders.Add
 
             try
             {
-                if (request.EmployeeId != Guid.Empty)
-                {
-                    var employee = await _context.Employees.FindAsync(request.EmployeeId);
-                    if (employee == null)
-                        return Guid.Empty;
-                }
+                _context.BeginTransaction();
 
-                var deliveryAddress = await _context.Addresses.FindAsync(request.DeliveryAddressId);
-                if (deliveryAddress == null)
+                var employee = await _context.Employees.FindAsync(request.EmployeeId);
+
+                var address = await _context.Addresses.FindAsync(
+                    new AddAddressInteractor(_context).Handle(request.DeliveryAddress).Result);
+                if (address == null)
                     return Guid.Empty;
 
                 var customer = await _context.Customers.FindAsync(request.CustomerId);
@@ -50,17 +48,24 @@ namespace Fenicia.Application.UseCases.Orders.Add
                     Priority = (PriorityLevel)request.Priority,
                     Status = (Status)request.Status,
                     EntryDate = DateTime.Today,
-                    DeliveryAddressId = request.DeliveryAddressId,
-                    DeliveryAddress = deliveryAddress,
+                    DeliveryAddressId = address.Id,
+                    DeliveryAddress = address,
                     CustomerId = request.CustomerId,
                     Customer = customer,
                 };
-                
+
+                if(employee != null)
+                {
+                    order.Employee = employee;
+                    order.EmployeeId = employee.Id;
+                }
+
+                address.Orders.Add(order);
                 _context.Orders.Add(order);
 
                 if (FillOrderItemsList(order, request.OrderItems).Result)
                 {
-                    await _context.SaveChangesAsync();
+                    await _context.Commit();
                     return order.Id;
                 }
 

@@ -28,7 +28,7 @@ namespace Fenicia.Application.UseCases.Addresses.Update
             if (address == null)
                 return Guid.Empty;
 
-            var country = await _context.Countries.FindAsync(request.Country);
+            var country = await _context.Countries.FindAsync(request.CountryId);
             if (country == null)
                 return Guid.Empty;
 
@@ -36,6 +36,9 @@ namespace Fenicia.Application.UseCases.Addresses.Update
             address.City = request.City;
             address.Country = country;
             address.ZipCode = request.ZipCode;
+
+            _context.Addresses.Update(address);
+            await _context.SaveChangesAsync();
 
             return address.Id;
         }
