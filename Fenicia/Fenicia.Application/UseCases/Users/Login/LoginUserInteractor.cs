@@ -1,5 +1,7 @@
-﻿using Fenicia.Application.Common.Interfaces;
+﻿using Fenicia.Application.Common.Extensions;
+using Fenicia.Application.Common.Interfaces;
 using Fenicia.Application.Common.Interfaces.UseCases.Users;
+using Fenicia.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -26,11 +28,14 @@ namespace Fenicia.Application.UseCases.Users.Login
 
         public async Task<LoginUserResponse> Handle(LoginUserRequest request)
         {
-            var validator = new LoginValidator(_context).Validate(request);
-            if(!validator.IsValid)
-                throw new NotImplementedException();
-
             var response = new LoginUserResponse();
+
+            var validator = new LoginValidator(_context).Validate(request);
+            if (!validator.IsValid)
+            {
+                response.ValidationResult = validator;
+                return response;
+            }
 
             var user = await _context.Users
                 .Where(x => x.Email == request.Email && x.Password == request.Password)
@@ -38,7 +43,7 @@ namespace Fenicia.Application.UseCases.Users.Login
 
             if(user == null)
             {
-                throw new NotImplementedException();
+                //throw new NotFoundException(nameof(User), request.Id);
             }
 
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
