@@ -24,7 +24,7 @@ namespace Fenicia.Application.UseCases.Users.Register
         {
             var result = new RegisterUserValidator(_context).Validate(request);
             if (!result.IsValid)
-                return new RegisterUserResponse(result);
+                return new RegisterUserResponse { ValidationResult = result };
 
             var user = new User
             {
@@ -41,10 +41,10 @@ namespace Fenicia.Application.UseCases.Users.Register
             catch(Exception e)
             {
                 result.Errors.Add(new ValidationFailure("Exception", e.Message));
-                return new RegisterUserResponse(result);
+                return new RegisterUserResponse { ValidationResult = result };
             }
 
-            return new RegisterUserResponse(result, user.Id);
+            return new RegisterUserResponse { ValidationResult = result, Id = user.Id };
 
         }   
     }

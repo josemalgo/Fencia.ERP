@@ -8,6 +8,6 @@ namespace Fenicia.Application.Common.Interfaces.UseCases
     public abstract class ResponseMessageInteractor
     {
         public ValidationResult ValidationResult { get; set; }
-        public Guid? Id { get; private set; }
+        public Guid? Id { get; set; }
     }
 }

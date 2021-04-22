@@ -1,5 +1,7 @@
-﻿using Fenicia.Application.Common.Interfaces;
+﻿using Fenicia.Application.Common.Exceptions;
+using Fenicia.Application.Common.Interfaces;
 using Fenicia.Application.Common.Interfaces.UseCases.Employees;
+using Fenicia.Domain.Entities;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,7 +21,7 @@ namespace Fenicia.Application.UseCases.Employees.Delete
         {
             var employee = await _context.Employees.FindAsync(request.Id);
             if (employee == null)
-                return Guid.Empty;
+                throw new NotFoundException(nameof(Employee), request.Id);
             
             var user = _context.Users.Single(e => e.Person == employee);
             if (user == null)

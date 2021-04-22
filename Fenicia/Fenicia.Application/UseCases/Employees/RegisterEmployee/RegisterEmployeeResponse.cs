@@ -8,10 +8,6 @@ namespace Fenicia.Application.UseCases.RegisterEmployee
 {
     public class RegisterEmployeeResponse : ResponseMessageInteractor
     {
-        public RegisterEmployeeResponse(ValidationResult validationResult, Guid? id = null)
-            : base(validationResult, id)
-        {
-
-        }
+        
     }
 }
