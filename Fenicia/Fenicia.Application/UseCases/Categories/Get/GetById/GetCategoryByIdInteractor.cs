@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Fenicia.Application.Common.Exceptions;
 using Fenicia.Application.Common.Interfaces;
 using Fenicia.Application.Common.Interfaces.UseCases.Categories;
+using Fenicia.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -31,10 +33,8 @@ namespace Fenicia.Application.UseCases.Categories.Get.GetById
                 .ProjectTo<GetCategoryDTO>(_mapper.ConfigurationProvider)
                 .FirstOrDefaultAsync();
 
-            if(category == null)
-            {
-
-            }
+            if (category == null)
+                throw new NotFoundException(nameof(Category), request.Id);
 
             response.category = category;
 
